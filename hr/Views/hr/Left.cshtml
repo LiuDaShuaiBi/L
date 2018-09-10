@@ -1,0 +1,262 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Gentelella Alela! | </title>
+    <style type="text/css">
+        body {
+            overflow-y: hidden;
+            background: linear-gradient(#334556,#F2F5F8),#F2F5F8;
+        }
+
+        #er {
+            margin-top: -5px;
+            text-align: right !important;
+            margin-right: 4px;
+        }
+    </style>
+    <link href="~/css/main.css" rel="stylesheet" />
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+
+    <!-- bootstrap-progressbar -->
+    <link href="../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="../vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
+    <!-- bootstrap-daterangepicker -->
+    <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="../build/css/custom.min.css" rel="stylesheet">
+
+</head>
+<body class="nav-md">
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a href="Index" class="site_title"><i class="fa fa-paw"></i> <span style="color:#274350">Bette伯乐人力资源</span></a>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <!-- menu profile quick info -->
+                    <div class="profile clearfix">
+                        <div class="profile_pic">
+                            <img src="~/images/Head1.jpg" alt="..." class="img-circle profile_img">
+                        </div>
+                        <div class="profile_info">
+                            <span>Welcome,</span>
+                            <h2>小可爱_55</h2>
+                        </div>
+                    </div>
+                    <!-- /menu profile quick info -->
+
+                    <br />
+                    <!-- sidebar menu -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                        <div class="menu_section">
+                            <h3>Bette_Menu</h3>
+                            <ul class="nav side-menu">
+                                <li>
+                                    <a><i class="fa fa-edit"></i> 招聘管理 <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li>
+                                            <a><i class="fa fa-home"></i> 职位发布管理 <span class="fa fa-chevron-down" id="er"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li><a href="../recruit/position_register" target="mainFrame">职位发布登记</a></li>
+                                                <li><a href="../recruit/position_change_update" target="mainFrame">职位发布变更</a></li>
+                                                <li><a href="../recruit/position_release_search" target="mainFrame">职位发布查询</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a><i class="fa fa-home"></i> 简历管理 <span class="fa fa-chevron-down" id="er"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li><a href="../recruit/register" target="mainFrame">简历登记</a></li>
+                                                <li><a href="../recruit/resume_choose" target="mainFrame">简历筛选</a></li>
+                                                <li><a href="../recruit/valid_resume" target="mainFrame">有效简历查询</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a><i class="fa fa-home"></i> 面试管理 <span class="fa fa-chevron-down" id="er"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li><a href="../recruit/interview_list" target="mainFrame">面试结果登记</a></li>
+                                                <li><a href="../recruit/sift_list" target="mainFrame">面试筛选</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a><i class="fa fa-home"></i> 录用管理 <span class="fa fa-chevron-down" id="er"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li><a href="../recruit/register_list" target="mainFrame">录用申请</a></li>
+                                                <li><a href="../recruit/check_list" target="mainFrame">录用审批</a></li>
+                                                <li><a href="../recruit/list" target="mainFrame">录用查询</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="fa fa-edit"></i> 人力资源档案管理 <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="../humanResources/human_register" target="mainFrame">人力资源档案登记</a></li>
+                                        <li><a href="../humanResources/check_list" target="mainFrame">人力资源档案登记复核</a></li>
+                                        <li><a href="../humanResources/query_locate" target="mainFrame">人力资源档案查询</a></li>
+                                        <li><a href="../humanResources/change_locate" target="mainFrame">人力资源档案变更</a></li>
+                                        <li>
+                                            <a><i class="fa fa-home"></i> 人力资源档案删除管理 <span class="fa fa-chevron-down" id="er"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li><a href="../humanResources/delete_locate" target="mainFrame">人力资源档案删除</a></li>
+                                                <li><a href="../humanResources/recovery_locate" target="mainFrame">档案删除恢复</a></li>
+                                                <li><a href="../humanResources/delete_forever_list" target="mainFrame">人力资源档案永久删除</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="fa fa-edit"></i> 薪酬标准管理 <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="../salaryCriterion/salarystandard_register" target="mainFrame">薪酬标准登记</a></li>
+                                        <li><a href="../salaryCriterion/salarystandard_check_list" target="mainFrame">薪酬标准登记复核</a></li>
+                                        <li><a href="../salaryCriterion/salarystandard_query_locate" target="mainFrame">薪酬标准查询</a></li>
+                                        <li><a href="../salaryCriterion/salarystandard_change_locate" target="mainFrame">薪酬标准变更</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="fa fa-edit"></i> 薪酬发放管理 <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="../salaryGrant/register_locate" target="mainFrame">薪酬发放登记</a></li>
+                                        <li><a href="../salaryGrant/check_list" target="mainFrame">薪酬发放登记复核</a></li>
+                                        <li><a href="../salaryGrant/query_locate" target="mainFrame">薪酬发放查询</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="fa fa-edit"></i> 调动管理 <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="../transfer/register_locate" target="mainFrame">调动登记</a></li>
+                                        <li><a href="../transfer/check_list" target="mainFrame">调动审核</a></li>
+                                        <li><a href="../transfer/locate" target="mainFrame">调动查询</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="fa fa-edit"></i> 客户化设置 <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li>
+                                            <a><i class="fa fa-home"></i> 人力资源档案管理设置 <span class="fa fa-chevron-down" id="er"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li><a href="../client/first_kind" target="mainFrame">Ⅰ级机构设置</a></li>
+                                                <li><a href="../client/second_kind" target="mainFrame">Ⅱ级机构设置</a></li>
+                                                <li><a href="../client/third_kind" target="mainFrame">Ⅲ级机构设置</a></li>
+                                                <li><a href="../client/profession_design" target="mainFrame">职称设置</a></li>
+                                                <li><a href="../client/major_kind" target="mainFrame">职位分类设置</a></li>
+                                                <li><a href="../client/major" target="mainFrame">职位设置</a></li>
+                                                <li><a href="../client/public_char" target="mainFrame">公共属性设置</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a><i class="fa fa-home"></i> 薪酬管理设置 <span class="fa fa-chevron-down" id="er"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li><a href="../client/salary_item" target="mainFrame">薪酬项目设置</a></li>
+                                                <li><a href="../client/salary_grant_mode" target="mainFrame">薪酬发放方式设置</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a><i class="fa fa-home"></i> 其他设置 <span class="fa fa-chevron-down" id="er"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li><a href="../client/primary_key" target="mainFrame">关键字查询设置</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="fa fa-edit"></i> 标准数据报表 <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="../criterionData/excel_locate" target="mainFrame">Excel标准数据报表</a></li>
+                                        <li><a href="../criterionData/pdf_locate" target="mainFrame">Pdf标准数据报表</a></li>
+                                        <li><a href="../criterionData/xml_locate" target="mainFrame">Xml标准数据报表</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="fa fa-edit"></i> 权限管理 <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="../power/user_list" target="mainFrame">用户管理</a></li>
+                                        <li><a href="../power/right_list" target="mainFrame">角色管理</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- jQuery -->
+            <script src="../vendors/jquery/dist/jquery.min.js"></script>
+            <!-- Bootstrap -->
+            <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+            <!-- FastClick -->
+            <script src="../vendors/fastclick/lib/fastclick.js"></script>
+            <!-- NProgress -->
+            <script src="../vendors/nprogress/nprogress.js"></script>
+            <!-- Chart.js -->
+            <script src="../vendors/Chart.js/dist/Chart.min.js"></script>
+            <!-- gauge.js -->
+            <script src="../vendors/gauge.js/dist/gauge.min.js"></script>
+            <!-- bootstrap-progressbar -->
+            <script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+            <!-- iCheck -->
+            <script src="../vendors/iCheck/icheck.min.js"></script>
+            <!-- Skycons -->
+            <script src="../vendors/skycons/skycons.js"></script>
+            <!-- Flot -->
+            <script src="../vendors/Flot/jquery.flot.js"></script>
+            <script src="../vendors/Flot/jquery.flot.pie.js"></script>
+            <script src="../vendors/Flot/jquery.flot.time.js"></script>
+            <script src="../vendors/Flot/jquery.flot.stack.js"></script>
+            <script src="../vendors/Flot/jquery.flot.resize.js"></script>
+            <!-- Flot plugins -->
+            <script src="../vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+            <script src="../vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+            <script src="../vendors/flot.curvedlines/curvedLines.js"></script>
+            <!-- DateJS -->
+            <script src="../vendors/DateJS/build/date.js"></script>
+            <!-- JQVMap -->
+            <script src="../vendors/jqvmap/dist/jquery.vmap.js"></script>
+            <script src="../vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+            <script src="../vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+            <!-- bootstrap-daterangepicker -->
+            <script src="../vendors/moment/min/moment.min.js"></script>
+            <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+            <!-- Custom Theme Scripts -->
+            <script src="../build/js/custom.min.js"></script>
+
+
+            <script>
+                $(function () {
+                    $("#mr").click(function () {
+                        $(".left_col").css("background", "#fff");
+                        $(".left_col").css("color", "black");
+
+                    })
+                    $("#yj").click(function () {
+                        $(".left_col").css("background", "#fff");
+                        $(".left_col").css("color", "black");
+                    })
+                    $("#qx").click(function () {
+                        $(".left_col").css("background", "#fff");
+                        $(".left_col").css("color", "black");
+                    })
+                })
+            </script>
+</body>
+</html>

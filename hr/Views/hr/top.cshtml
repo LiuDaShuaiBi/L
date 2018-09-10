@@ -1,0 +1,51 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet"
+          href="../css/table.css" type="text/css">
+    <style type="text/css">
+        body {
+            background: linear-gradient(#334556,#F2F5F8),#F2F5F8;
+        }
+
+        .BUTTON_STYLE1 {
+            color: white;
+            height: 27px;
+            line-height: 23px;
+            width: 65px;
+            margin-bottom: 10px;
+            border-radius: 20px;
+            background-color: transparent;
+            border-color: white;
+        }
+    </style>
+    <script>
+        function jump() {
+            top.location.href = "../Login/Login";
+        }
+    </script>
+</head>
+<body topmargin="0" leftmargin="0" style="height:77px">
+    <table style="width: 70%; margin-left: 30%;">
+        <tr>
+            <td style="text-align: right;width:30%">
+                <p style="font-size: 40px; margin: 0; color: white; filter:progid:DXImageTransform.Microsoft.Shadow(color=black,direction=120,strength=5); text-shadow: 4px 4px 15px black;">
+                    人力资源管理系统
+                </p>
+            </td>
+            <td style="text-align: right;font-size:17px;width:35%;color:white;">
+                <br />
+                欢迎你：谢鹏(人事经理)&nbsp;
+                <input type="button" value="退出系统" class="BUTTON_STYLE1" onclick="jump()" tar />&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

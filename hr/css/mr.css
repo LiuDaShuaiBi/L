@@ -1,0 +1,28 @@
+﻿body {
+    color: black;
+    font-size: 14px;
+    background-color: #fff;
+}
+
+.TD_STYLE1{
+    height:45px;
+    line-height:45px;
+}
+
+iframe{
+    background-color: white;
+}
+.BUTTON_STYLE1{
+    color: black;
+    height: 27px;
+    line-height: 23px;
+    width: 65px;
+    margin-bottom:10px;
+    border-radius: 20px;
+    background-color: transparent;
+}
+
+#fields tr td{
+    height:32px;
+    line-height:30px;
+}

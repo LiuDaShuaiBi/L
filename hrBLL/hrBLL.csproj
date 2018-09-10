@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FDBDB51B-6AE5-4558-B1C8-20BE73320F83}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>hrBLL</RootNamespace>
+    <AssemblyName>hrBLL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="bonusService.cs" />
+    <Compile Include="config_file_first_kindService.cs" />
+    <Compile Include="config_file_second_kindService.cs" />
+    <Compile Include="config_file_third_kindService.cs" />
+    <Compile Include="config_majorService.cs" />
+    <Compile Include="config_major_kindService.cs" />
+    <Compile Include="config_primary_keyService.cs" />
+    <Compile Include="config_public_charService.cs" />
+    <Compile Include="config_question_first_kindService.cs" />
+    <Compile Include="config_question_second_kindService.cs" />
+    <Compile Include="engage_answerService.cs" />
+    <Compile Include="engage_answer_detailsService.cs" />
+    <Compile Include="engage_examService.cs" />
+    <Compile Include="engage_exam_detailsService.cs" />
+    <Compile Include="engage_interviewService.cs" />
+    <Compile Include="engage_major_releaseService.cs" />
+    <Compile Include="engage_resumeService.cs" />
+    <Compile Include="engage_subjectsService.cs" />
+    <Compile Include="human_fileService.cs" />
+    <Compile Include="human_file_digService.cs" />
+    <Compile Include="major_changeService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="salary_grantService.cs" />
+    <Compile Include="salary_grant_detailsService.cs" />
+    <Compile Include="salary_standardService.cs" />
+    <Compile Include="salary_standard_detailsService.cs" />
+    <Compile Include="trainingService.cs" />
+    <Compile Include="UserService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{2f09466d-a363-46ea-acb1-96b2448f9c4f}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DBsession\DBsession.csproj">
+      <Project>{e4760338-ea51-48f9-96fa-c19821fd4f5a}</Project>
+      <Name>DBsession</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\hrDao\hrDao.csproj">
+      <Project>{21952cd6-787e-4a6c-aaa3-632682bc7504}</Project>
+      <Name>hrDao</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\hrIDao\hrIDao.csproj">
+      <Project>{3ec87940-48cd-4077-a209-3b317c8bcb6a}</Project>
+      <Name>hrIDao</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\hrModel\hrModel.csproj">
+      <Project>{a04f2fd4-ecf3-4d47-8e41-c252d7a7c2df}</Project>
+      <Name>hrModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
