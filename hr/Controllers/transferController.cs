@@ -16,7 +16,7 @@ namespace hr.Controllers
         // GET: transfer
         public ActionResult check()
         {
-            string id = Request["id"];
+            ViewData["yi"] = cffks.Select();
             return View();
         }
         public ActionResult check_list()
