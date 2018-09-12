@@ -2,7 +2,7 @@
 @{
     Layout = null;
 }
-
+@model IEnumerable<hrModel.human_file>
 <!DOCTYPE html>
 
 <html>
@@ -43,223 +43,31 @@
                 </td>
 
             </tr>
-
-
-            <tr height="21">
-                <td class="TD_STYLE2">
-                    Ⅰ级结构
-                </td>
-                <td class="TD_STYLE2">
-                    Ⅱ级结构3
-                </td>
-                <td class="TD_STYLE2"></td>
-                <td class="TD_STYLE2">
-                    经理级别
-                </td>
-                <td class="TD_STYLE2">
-                    杨阳
-                </td>
-                <td class="TD_STYLE2">
-                    <a href="register.html">
-                        调动
-                    </a>
-                </td>
-            </tr>
-
-            <tr height="21">
-                <td class="TD_STYLE2">
-                    集团
-                </td>
-                <td class="TD_STYLE2">
-                    软件公司
-                </td>
-                <td class="TD_STYLE2">
-                    外包公司
-                </td>
-                <td class="TD_STYLE2">
-                    经理级别
-                </td>
-                <td class="TD_STYLE2">
-                    罗勇
-                </td>
-                <td class="TD_STYLE2">
-                    <a href="register.html">
-                        调动
-                    </a>
-                </td>
-            </tr>
-
-            <tr height="21">
-                <td class="TD_STYLE2">
-                    总部
-                </td>
-                <td class="TD_STYLE2">
-                    湖南分校区
-                </td>
-                <td class="TD_STYLE2">
-                    长沙分校区1
-                </td>
-                <td class="TD_STYLE2">
-                    经理级别
-                </td>
-                <td class="TD_STYLE2">
-                    詹瑛
-                </td>
-                <td class="TD_STYLE2">
-                    <a href="register.html">
-                        调动
-                    </a>
-                </td>
-            </tr>
-
-            <tr height="21">
-                <td class="TD_STYLE2">
-                    Ⅰ级结构
-                </td>
-                <td class="TD_STYLE2">
-                    Ⅱ级结构5
-                </td>
-                <td class="TD_STYLE2"></td>
-                <td class="TD_STYLE2">
-                    经理级别
-                </td>
-                <td class="TD_STYLE2">
-                    洪春生
-                </td>
-                <td class="TD_STYLE2">
-                    <a href="register.html">
-                        调动
-                    </a>
-                </td>
-            </tr>
-
-            <tr height="21">
-                <td class="TD_STYLE2">
-                    集团
-                </td>
-                <td class="TD_STYLE2">
-                    软件公司
-                </td>
-                <td class="TD_STYLE2">
-                    外包公司
-                </td>
-                <td class="TD_STYLE2">
-                    经理级别
-                </td>
-                <td class="TD_STYLE2">
-                    张人俊萧
-                </td>
-                <td class="TD_STYLE2">
-                    <a href="register.html">
-                        调动
-                    </a>
-                </td>
-            </tr>
-
-            <tr height="21">
-                <td class="TD_STYLE2">
-                    总部
-                </td>
-                <td class="TD_STYLE2">
-                    湖南分校区
-                </td>
-                <td class="TD_STYLE2">
-                    长沙分校区1
-                </td>
-                <td class="TD_STYLE2">
-                    经理级别
-                </td>
-                <td class="TD_STYLE2">
-                    张人俊萧
-                </td>
-                <td class="TD_STYLE2">
-                    <a href="register.html">
-                        调动
-                    </a>
-                </td>
-            </tr>
-
-            <tr height="21">
-                <td class="TD_STYLE2">
-                    Ⅰ级结构
-                </td>
-                <td class="TD_STYLE2"></td>
-                <td class="TD_STYLE2"></td>
-                <td class="TD_STYLE2">
-                    普通员工
-                </td>
-                <td class="TD_STYLE2">
-                    刘恺威
-                </td>
-                <td class="TD_STYLE2">
-                    <a href="register.html">
-                        调动
-                    </a>
-                </td>
-            </tr>
-
-            <tr height="21">
-                <td class="TD_STYLE2">
-                    集团
-                </td>
-                <td class="TD_STYLE2"></td>
-                <td class="TD_STYLE2"></td>
-                <td class="TD_STYLE2">
-                    普通员工
-                </td>
-                <td class="TD_STYLE2">
-                    刘恺威
-                </td>
-                <td class="TD_STYLE2">
-                    <a href="register.html">
-                        调动
-                    </a>
-                </td>
-            </tr>
-
-            <tr height="21">
-                <td class="TD_STYLE2">
-                    Ⅰ级结构
-                </td>
-                <td class="TD_STYLE2"></td>
-                <td class="TD_STYLE2"></td>
-                <td class="TD_STYLE2">
-                    董事长
-                </td>
-                <td class="TD_STYLE2">
-                    杨幂
-                </td>
-                <td class="TD_STYLE2">
-                    <a href="register.html">
-                        调动
-                    </a>
-                </td>
-            </tr>
-
-            <tr height="21">
-                <td class="TD_STYLE2">
-                    Ⅰ级结构
-                </td>
-                <td class="TD_STYLE2">
-                    请选择
-                </td>
-                <td class="TD_STYLE2">
-                    请选择
-                </td>
-                <td class="TD_STYLE2">
-                    经理级别
-                </td>
-                <td class="TD_STYLE2">
-                    周小坚
-                </td>
-                <td class="TD_STYLE2">
-                    <a href="register.html">
-                        调动
-                    </a>
-                </td>
-            </tr>
-
-
+            @foreach (var item in Model)
+            {
+                <tr height="21">
+                    <td class="TD_STYLE2">
+                        @item.first_kind_name
+                    </td>
+                    <td class="TD_STYLE2">
+                        @item.second_kind_name
+                    </td>
+                    <td class="TD_STYLE2">
+                        @item.third_kind_name
+                    </td>
+                    <td class="TD_STYLE2">
+                        @item.salary_standard_name
+                    </td>
+                    <td class="TD_STYLE2">
+                        @item.human_name
+                    </td>
+                    <td class="TD_STYLE2">
+                        <a href="register/@item.huf_id">
+                            调动
+                        </a>
+                    </td>
+                </tr>
+            }
         </table>
 
 

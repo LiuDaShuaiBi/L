@@ -39,10 +39,38 @@ namespace hrBLL
 
             return ist.SelectBy(e => e.first_kind_name.Contains(yi) & e.second_kind_name.Contains(er) & e.third_kind_name.Contains(san) & e.human_major_kind_name.Contains(zwfl) & e.hunma_major_name.Contains(zwmc));
         }
+        /// <summary>
+        /// 三级查询
+        /// </summary>
+        /// <param name="san"></param>
+        /// <param name="jdsj"></param>
+        /// <param name="cxsj"></param>
+        /// <returns></returns>
         public List<human_file> selectBy(string san, DateTime jdsj, DateTime cxsj)
         {
-
             return ist.SelectBy(e => e.third_kind_name.Contains(san) & e.regist_time >= jdsj & e.regist_time <= cxsj);
+        }
+        /// <summary>
+        /// 二级查询
+        /// </summary>
+        /// <param name="san"></param>
+        /// <param name="jdsj"></param>
+        /// <param name="cxsj"></param>
+        /// <returns></returns>
+        public List<human_file> selectEr(string san, DateTime jdsj, DateTime cxsj)
+        {
+            return ist.SelectBy(e => e.salary_standard_id.Contains(san) & e.regist_time >= jdsj & e.regist_time <= cxsj);
+        }
+        /// <summary>
+        /// 一级查询
+        /// </summary>
+        /// <param name="san"></param>
+        /// <param name="jdsj"></param>
+        /// <param name="cxsj"></param>
+        /// <returns></returns>
+        public List<human_file> selectYi(string san, DateTime jdsj, DateTime cxsj)
+        {
+            return ist.SelectBy(e => e.first_kind_id.Contains(san) & e.regist_time >= jdsj & e.regist_time <= cxsj);
         }
         public string Max()
         {
