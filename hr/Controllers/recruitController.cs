@@ -195,5 +195,17 @@ namespace hr.Controllers
             ViewData["zw"] = cms.Select();
             return View();
         }
+        public ActionResult er()
+        {
+            string id = Request["id"];
+            List<config_file_second_kind> list = cfsks.erSelect(id);
+            return Json(list, JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult san()
+        {
+            string id = Request["id"];
+            List<config_file_third_kind> list = cftks.sanSelect(id);
+            return Json(list, JsonRequestBehavior.AllowGet);
+        }
     }
 }

@@ -13,6 +13,7 @@ namespace hr.Controllers
         config_file_first_kindService cffks = new config_file_first_kindService();
         config_file_second_kindService cfsks = new config_file_second_kindService();
         config_file_third_kindService cftks = new config_file_third_kindService();
+        human_fileService hfs = new human_fileService();
         // GET: transfer
         public ActionResult check()
         {
@@ -39,8 +40,13 @@ namespace hr.Controllers
         {
             return View();
         }
-        public ActionResult register()
+        public ActionResult register(short id)
         {
+            human_file hf = new human_file()
+            {
+                huf_id = id
+            };
+            ViewData.Model = hfs.SelectOne(hf);
             return View();
         }
         public ActionResult register_list()
@@ -68,5 +74,6 @@ namespace hr.Controllers
         {
             return View();
         }
+
     }
 }
