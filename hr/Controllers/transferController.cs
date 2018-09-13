@@ -46,11 +46,49 @@ namespace hr.Controllers
             {
                 huf_id = id
             };
-            ViewData.Model = hfs.SelectOne(hf);
+            hfs.SelectOne(hf);
             return View();
         }
-        public ActionResult register_list()
+        public ActionResult register_list(FormCollection fr)
         {
+            string yi = fr["configThird.firstKindId"];
+            string er = fr["configThird.secondKindId"];
+            string san = fr["configThird.thirdKindId"];
+            DateTime st = new DateTime();
+            DateTime et = DateTime.Now;
+            if (fr["utilbean.startDate"] != "")
+                st = DateTime.Parse(fr["utilbean.startDate"]);
+            else
+                st = DateTime.Parse("2011-1-1");
+            if (fr["utilbean.endDate"] != "")
+                et = DateTime.Parse(fr["utilbean.endDate"]);
+            List<human_file> lh = new List<human_file>();
+            if (yi == "0")
+            {
+                //查全部
+                lh = hfs.selectYi("", st, et);
+            }
+            else if (yi != "0")
+            {
+                lh = hfs.selectYi(yi, st, et);
+            }
+            else if (er == "0")
+            {
+                lh = hfs.selectEr("", st, et);
+            }
+            else if (er != "0")
+            {
+                lh = hfs.selectEr(er, st, et);
+            }
+            else if (san == "0")
+            {
+                lh = hfs.selectBy("", st, et);
+            }
+            else
+        {
+                lh = hfs.selectBy(san, st, et);
+            }
+            ViewData.Model = lh;
             return View();
         }
         public ActionResult register_locate()
@@ -62,7 +100,7 @@ namespace hr.Controllers
         {
             string id = Request["id"];
             List<config_file_second_kind> list = cfsks.erSelect(id);
-            return Json(list,JsonRequestBehavior.AllowGet);
+            return Json(list, JsonRequestBehavior.AllowGet);
         }
         public ActionResult san()
         {
