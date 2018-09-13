@@ -25,6 +25,18 @@ namespace hr.Controllers
             string id =hfs.Max();
             return View();
         }
+        public ActionResult er()
+        {
+            string id = Request["id"];
+            List<config_file_second_kind> list = cfsks.erSelect(id);
+            return Json(list, JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult san()
+        {
+            string id = Request["id"];
+            List<config_file_third_kind> list = cftks.sanSelect(id);
+            return Json(list, JsonRequestBehavior.AllowGet);
+        }
         public ActionResult change_list(human_file hf)
         {
             ViewData.Model = hfs.selectBy(hf.first_kind_name, hf.second_kind_name, hf.third_kind_name, hf.human_major_kind_name, hf.hunma_major_name);

@@ -87,7 +87,7 @@ namespace hr.Controllers
                 lh = hfs.selectBy("", st, et);
             }
             else
-            {
+        {
                 lh = hfs.selectBy(san, st, et);
             }
             ViewData.Model = lh;
@@ -116,5 +116,6 @@ namespace hr.Controllers
             hfs.DD(mc);
             return View();
         }
+
     }
 }
