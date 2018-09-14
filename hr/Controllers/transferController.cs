@@ -14,6 +14,8 @@ namespace hr.Controllers
         config_file_second_kindService cfsks = new config_file_second_kindService();
         config_file_third_kindService cftks = new config_file_third_kindService();
         human_fileService hfs = new human_fileService();
+        major_changeService mcs = new major_changeService();
+
         // GET: transfer
         public ActionResult check()
         {
@@ -46,7 +48,7 @@ namespace hr.Controllers
             {
                 huf_id = id
             };
-            hfs.SelectOne(hf);
+            ViewData.Model = hfs.SelectOne(hf);
             return View();
         }
         public ActionResult register_list(FormCollection fr)
@@ -108,8 +110,10 @@ namespace hr.Controllers
             List<config_file_third_kind> list = cftks.sanSelect(id);
             return Json(list, JsonRequestBehavior.AllowGet);
         }
-        public ActionResult register_success()
-        {
+        public ActionResult register_success(major_change mc)
+        { 
+            mcs.Add(mc);
+            hfs.DD(mc);
             return View();
         }
 
