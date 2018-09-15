@@ -9,15 +9,15 @@ using System.Threading.Tasks;
 
 namespace hrBLL
 {
-public class salary_standardService
+    public class salary_standardService
     {
-static DBSessionFactory db = new DBSessionFactory();
+        static DBSessionFactory db = new DBSessionFactory();
         Isalary_standard ist = db.Createsalary_standard();
         public List<salary_standard> Select()
         {
             return ist.Select();
         }
-        
+
         public bool Del(salary_standard us)
         {
             return ist.Del(us);
@@ -32,22 +32,24 @@ static DBSessionFactory db = new DBSessionFactory();
         }
         public salary_standard SelectOne(salary_standard us)
         {
-            return ist.SelectBy(e=>e.standard_id==us.standard_id)[0];
+            return ist.SelectBy(e => e.standard_id == us.standard_id)[0];
         }
         public string Max()
         {
             return ist.Max();
         }
-        public List<salary_standard> selectBy(string id,DateTime stime,DateTime etime)
+        public List<salary_standard> selectBy(string id, DateTime stime, DateTime etime)
         {
-            if(id!="")
+            if (id != "")
                 return ist.SelectBy(e => e.standard_id == id);
             else
             {
-                return ist.SelectBy(e => e.regist_time>stime&e.regist_time<etime);
+                return ist.SelectBy(e => e.regist_time > stime & e.regist_time < etime);
             }
         }
+        public string SelectSum(short id)
+        {
+            return (ist.SelectBy(e => e.ssd_id == id)[0]).salary_sum.ToString();
+        }
     }
-
-   
 }

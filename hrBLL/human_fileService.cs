@@ -76,9 +76,9 @@ namespace hrBLL
         {
             return ist.Max();
         }
-        public bool DD(major_change mc)
+        public bool DD(major_change mc,short id)
         {
-            return ist.updatahf(mc);
+            return ist.updatahf(mc,id);
         }
     }
 }

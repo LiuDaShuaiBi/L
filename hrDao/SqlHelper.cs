@@ -47,7 +47,7 @@ namespace hrDao
         private static void getex(Exception ex)
         {
 
-            using (StreamWriter sw = new StreamWriter(@"D:\资料\Y2\服务器控件\项目\项目静态资料\ecshop\Admin\images\日志错误.txt", true))
+            using (StreamWriter sw = new StreamWriter(@"C:\Users\小可爱\Desktop\错误日志.txt", true))
             {
                 sw.WriteLine("错误时间:" + DateTime.Now);
                 sw.WriteLine("错误内容:" + ex.Message);

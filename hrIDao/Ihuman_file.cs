@@ -10,6 +10,6 @@ namespace hrIDao
     public interface Ihuman_file:IBaseDao<human_file>
     {
         string Max();
-        bool updatahf(major_change mc);
+        bool updatahf(major_change mc,short id);
     }
 }

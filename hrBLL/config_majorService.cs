@@ -38,6 +38,10 @@ static DBSessionFactory db = new DBSessionFactory();
         {
             return ist.Max();
         }
+        public List<config_major> SelectX(string id)
+        {
+            return ist.SelectBy(e => e.major_kind_id == id);
+        }
     }
 
    

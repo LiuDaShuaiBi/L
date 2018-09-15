@@ -2,6 +2,7 @@
 @{
     Layout = null;
 }
+@using hrModel;
 @model hrModel.human_file
 <!DOCTYPE html>
 
@@ -14,7 +15,9 @@
 </head>
 
 <body>
-    <form action="register_success">
+    <form action="../register_success">
+        <input id="Hidden1" type="hidden" name="huf_id" value="@Model.huf_id"/>
+        <input id="Hidden1" type="hidden" name="check_status" value="1"/>
         <table width="100%">
             <tr>
                 <td>
@@ -156,10 +159,17 @@
                             var first = $("#firstKindId");
                             var second = $("#secondKindId");
                             var third = $("#thirdKindId");
+                            second.change(function () {
+                                $("#newsecondKindName").val() = second.find("option:selected").text();
+                            })
+                            third.change(function () {
+                                $("#newThirdKindName").val() = third.find("option:selected").text();
+                            })
                             first.change(function () {
+                                $("#newFirstKindName").val(first.find("option:selected").text());
                                 second.html("");
                                 $.ajax({
-                                    url: "er",
+                                    url: "../er",
                                     data: "id=" + first.val(),
                                     success: function (data) {
                                         second.append("<option value='0' >-----请选择-----</option>");
@@ -175,7 +185,10 @@
 
                     <select style="width:160px" name="new_first_kind_id" id="firstKindId" size="1" class="SELECT_STYLE2">
                         <option value="0">-----请选择-----</option>
-
+                        @foreach (var item in ViewData["yi"] as List<config_file_first_kind>)
+                        {
+                            <option value="@item.first_kind_id">@item.first_kind_name</option>
+                        }
                     </select>
                     <input type="hidden" name="new_first_kind_name" id="newFirstKindName">
                 </td>
@@ -193,7 +206,7 @@
                             second.change(function () {
                                 third.html("");
                                 $.ajax({
-                                    url: "san",
+                                    url: "../san",
                                     data: "id=" + second.val(),
                                     success: function (data) {
                                         third.append("<option value='0' >-----请选择-----</option>");
@@ -231,7 +244,7 @@
                     新职位分类
                 </td>
                 <td class="TD_STYLE2">
-                    <select style="width:160px" name="majorChange.newMajorKindId" id="newMajorKindId" size="1" class="SELECT_STYLE2">
+                    <select style="width:160px" name="new_major_kind_id" id="newMajorKindId" size="1" class="SELECT_STYLE2">
                         <option value="0">-----请选择-----</option>
 
                         <option value="01">销售</option>
@@ -242,7 +255,7 @@
 
                         <option value="04">生产部</option>
                     </select>
-                    <input type="hidden" name="majorChange.newMajorKindName" id="newMajorKindName">
+                    <input type="hidden" name="new_major_kind_name" id="newMajorKindName">
                     <script type="text/javascript">
 
                         $(function () {
@@ -272,8 +285,10 @@
                     新职位名称
                 </td>
                 <td class="TD_STYLE2">
-                    <select name="majorChange.newMajorId" id="newMajorId" class="INPUT_STYLE2">
+                    <select name="new_major_id" id="newMajorId" class="INPUT_STYLE2">
                         <option value="0">-----请选择-----</option>
+                        <option value="1">董事长</option>
+                        <option value="2">经理</option>
                     </select>
                     <input type="hidden" name="majorChange.newMajorName" id="newMajorName">
                 </td>
@@ -281,7 +296,7 @@
                     新薪酬标准
                 </td>
                 <td class="TD_STYLE2">
-                    <select style="width:160px" name="majorChange.newSalaryStandardId" id="newSalaryStandardId" size="1" class="SELECT_STYLE2">
+                    <select style="width:160px" name="new_salary_standard_id" id="newSalaryStandardId" size="1" class="SELECT_STYLE2">
                         <option value="0">-----请选择-----</option>
 
                         <option value="1353320063473">普通员工</option>
@@ -291,7 +306,7 @@
                         <option value="1353320112255">董事长</option>
 
                     </select>
-                    <input type="hidden" name="majorChange.newSalaryStandardName" id="newSalaryStandardName">
+                    <input type="hidden" name="new_salary_standard_name" id="newSalaryStandardName">
                     <SCRIPT type="text/javascript">
                         $(function () {
                             var standardid = $('#newSalaryStandardId');
@@ -312,7 +327,7 @@
                     新薪酬总额
                 </td>
                 <td class="TD_STYLE2">
-                    <input type="text" name="majorChange.newSalarySum" id="newSalarySum" readonly="readonly"
+                    <input type="text" name="new_salary_sum" id="newSalarySum" readonly="readonly"
                            value="0.00" class="INPUT_STYLE2">
                 </td>
             </tr>
@@ -322,14 +337,14 @@
                     登记人
                 </td>
                 <td class="TD_STYLE2">
-                    <input type="text" name="majorChange.register" readonly="readonly" value="better_admin"
+                    <input type="text" name="register" readonly="readonly" value="better_admin"
                            class="INPUT_STYLE2">
                 </td>
                 <td class="TD_STYLE1">
                     登记时间
                 </td>
                 <td class="TD_STYLE2">
-                    <input type="text" name="majorChange.registTime" readonly="readonly"
+                    <input type="text" name="regist_time" readonly="readonly"
                            id="Tdate" class="INPUT_STYLE2">
                     <SCRIPT type="text/javascript">
                         function time() {
@@ -384,7 +399,7 @@
                     调动原因
                 </td>
                 <td colspan="7" class="TD_STYLE2">
-                    <textarea name="majorChange.changeReason" rows="6" class="TEXTAREA_STYLE1"></textarea>
+                    <textarea name="change_reason" rows="6" class="TEXTAREA_STYLE1"></textarea>
                 </td>
             </tr>
         </table>

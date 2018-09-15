@@ -34,7 +34,6 @@ static DBSessionFactory db = new DBSessionFactory();
         {
             return ist.SelectBy(e=>e.mre_id==us.mre_id)[0];
         }
-        
 }
 
    

@@ -2,7 +2,7 @@
 @{
     Layout = null;
 }
-
+@model IEnumerable<hrModel.major_change>
 <!DOCTYPE html>
 
 <html>
@@ -29,7 +29,7 @@
             </tr>
             <tr>
                 <td>
-                    当前待复核的调动人数:1
+                    当前待复核的调动人数:@Model.Count()
                     例
                 </td>
             </tr>
@@ -58,26 +58,32 @@
         </td>
 
         </tr>
+            @foreach (var item in Model)
+            {
+                if (item.check_status == 1)
+                {
+                    <tr height="21">
+                        <td class="TD_STYLE2">
+                            @item.first_kind_name
+                        </td>
+                        <td class="TD_STYLE2">
+                            @item.major_kind_name
+                        </td>
+                        <td class="TD_STYLE2"></td>
+                        <td class="TD_STYLE2">
+                            @item.major_name
+                        </td>
+                        <td class="TD_STYLE2">
+                            @item.human_name
+                        </td>
+                        <td class="TD_STYLE2">
+                            <a href="check/@item.mch_id">审核</a>
+                        </td>
+                    </tr>
+                }
+            }
 
-
-        <tr height="21">
-        <td class="TD_STYLE2">
-        Ⅰ级结构
-        </td>
-        <td class="TD_STYLE2">
-        Ⅱ级结构3
-        </td>
-        <td class="TD_STYLE2"></td>
-        <td class="TD_STYLE2">
-        经理级别
-        </td>
-        <td class="TD_STYLE2">
-        杨阳
-        </td>
-        <td class="TD_STYLE2">
-        <a href="check.html">审核</a>
-        </td>
-        </tr>
+        
 
 
         </table>

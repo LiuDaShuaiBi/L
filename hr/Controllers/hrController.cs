@@ -41,14 +41,7 @@ namespace hr.Controllers
         {
             UserService uss = new UserService();
             bool pd = uss.Login(us);
-            if (pd)
-            {
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                return Content(TcUlit.TC("cw", "Login"));
-            }
+            return Json(pd);
         }
     }
 }
