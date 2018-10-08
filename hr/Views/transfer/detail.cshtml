@@ -2,7 +2,7 @@
 @{
     Layout = null;
 }
-
+@model hrModel.major_change
 <!DOCTYPE html>
 
 <html>
@@ -35,13 +35,13 @@
                 档案编号
             </td>
             <td class="TD_STYLE2" width="10%">
-                bt201211190619440428
+                @Model.human_id
             </td>
             <td class="TD_STYLE1" width="8%">
                 姓名
             </td>
             <td class="TD_STYLE2" width="10%">
-                杨阳
+                @Model.human_name
             </td>
             <td class="TD_STYLE1" width="8%"></td>
             <td class="TD_STYLE2" width="10%"></td>
@@ -53,18 +53,18 @@
                 原一级机构
             </td>
             <td class="TD_STYLE2">
-                Ⅰ级结构
+                @Model.first_kind_name
             </td>
             <td class="TD_STYLE1" width="8%">
                 原二级机构
             </td>
             <td class="TD_STYLE2" width="10%">
-                Ⅱ级结构3
+                @Model.second_kind_name
             </td>
             <td class="TD_STYLE1" width="8%">
                 原三级机构
             </td>
-            <td class="TD_STYLE2" width="10%"></td>
+            <td class="TD_STYLE2" width="10%">@Model.third_kind_name</td>
             <td class="TD_STYLE1" width="8%"></td>
             <td class="TD_STYLE2" width="10%"></td>
         </tr>
@@ -74,24 +74,24 @@
                 原职位分类
             </td>
             <td class="TD_STYLE2">
-                销售
+                @Model.major_kind_name
             </td>
             <td class="TD_STYLE1" width="12%">
                 原职位名称
             </td>
             <td class="TD_STYLE2">
-                区域经理
+                @Model.major_name
             </td>
             <td class="TD_STYLE1">
                 原薪酬标准
             </td>
             <td class="TD_STYLE2">
-                经理级别
+                @Model.salary_standard_name
             </td>
             <td class="TD_STYLE1">
                 原薪酬总额
             </td>
-            <td class="TD_STYLE2"></td>
+            <td class="TD_STYLE2">@Model.salary_sum</td>
         </tr>
         <tr>
             <td class="TD_STYLE1">
@@ -99,7 +99,7 @@
             </td>
             <td class="TD_STYLE2">
                 <select name="mc.newFirstKindId" class="INPUT_STYLE2">
-                    <option value="1353318953319">Ⅰ级结构</option>
+                    <option value="@Model.new_first_kind_id">@Model.new_first_kind_name</option>
                 </select>
 
             </td>
@@ -108,7 +108,7 @@
             </td>
             <td class="TD_STYLE2">
                 <select name="mc.newSecondKindId" class="INPUT_STYLE2">
-                    <option value="1353318979558">Ⅱ级结构1</option>
+                    <option value="@Model.new_second_kind_id">@Model.new_second_kind_name</option>
                 </select>
             </td>
             <td class="TD_STYLE1" width="12%">
@@ -116,7 +116,7 @@
             </td>
             <td class="TD_STYLE2">
                 <select name="mc.newThirdKindId" class="INPUT_STYLE2">
-                    <option value="1353319077370">Ⅲ级结构111</option>
+                    <option value="@Model.new_third_kind_id">@Model.new_third_kind_name</option>
                 </select>
             </td>
             <td class="TD_STYLE1" width="8%"></td>
@@ -128,7 +128,7 @@
             </td>
             <td class="TD_STYLE2">
                 <select name="mc.newMajorKindId" class="INPUT_STYLE2">
-                    <option value="02">软件开发</option>
+                    <option value="02">@Model.new_major_kind_name</option>
                 </select>
             </td>
             <td class="TD_STYLE1" width="12%">
@@ -136,7 +136,7 @@
             </td>
             <td class="TD_STYLE2">
                 <select name="mc.newMajorId" class="INPUT_STYLE2">
-                    <option value="02">程序员</option>
+                    <option value="02">@Model.new_major_name </option>
                 </select>
             </td>
             <td class="TD_STYLE1">
@@ -144,14 +144,14 @@
             </td>
             <td class="TD_STYLE2">
                 <select name="mc.newSalaryStandardId" class="INPUT_STYLE2">
-                    <option value="1353320082662">经理级别</option>
+                    <option value="1353320082662">@Model.new_salary_standard_name</option>
                 </select>
             </td>
             <td class="TD_STYLE1">
                 新薪酬总额
             </td>
             <td class="TD_STYLE2">
-                1332.0
+                @Model.new_salary_sum
             </td>
         </tr>
 
@@ -160,25 +160,25 @@
                 登记人
             </td>
             <td class="TD_STYLE2">
-                manager
+                @Model.register
             </td>
             <td class="TD_STYLE1">
                 登记时间
             </td>
             <td class="TD_STYLE2">
-                2012-11-19 00:00:00.0
+               @Model.regist_time
             </td>
             <td class="TD_STYLE1">
                 复核人
             </td>
             <td class="TD_STYLE2">
-                manager
+                @Model.checker
             </td>
             <td class="TD_STYLE1">
                 复核时间
             </td>
             <td class="TD_STYLE2">
-                2012-11-19 19:00:13.0
+               @Model.check_time
             </td>
         </tr>
         <tr>
@@ -186,7 +186,7 @@
                 调动原因
             </td>
             <td colspan="7" class="TD_STYLE2">
-                <textarea name="majorChange.changeReason" rows="6" readonly="readonly" class="TEXTAREA_STYLE1"></textarea>
+                <textarea name="majorChange.changeReason" rows="6" readonly="readonly" class="TEXTAREA_STYLE1">@Model.change_reason</textarea>
             </td>
         </tr>
     </table>

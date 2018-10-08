@@ -2,7 +2,8 @@
 @{
     Layout = null;
 }
-
+@using hrModel;
+@{users us = Session["user"] as users;}
 <!DOCTYPE html>
 
 <html>
@@ -42,7 +43,7 @@
             </td>
             <td style="text-align: right;font-size:17px;width:35%;color:white;">
                 <br />
-                欢迎你：谢鹏(人事经理)&nbsp;
+                欢迎你：@us.u_name  &nbsp;
                 <input type="button" value="退出系统" class="BUTTON_STYLE1" onclick="jump()" tar />&nbsp;&nbsp;&nbsp;&nbsp;
             </td>
         </tr>

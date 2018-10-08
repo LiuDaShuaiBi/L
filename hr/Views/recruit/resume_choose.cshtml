@@ -69,6 +69,7 @@
                 </td>
             </tr>
         </table>
+        
         <table width="100%" border="1" cellpadding=0 cellspacing=1
                bordercolorlight=#848284 bordercolordark=#eeeeee
                class="TABLE_STYLE1">
@@ -87,27 +88,37 @@
                         }
 
                     </select>
+                    <script type="text/javascript">
+
+                        $(function () {
+
+                            var second = $('#majorKindId');
+                            var third = $('#majorId');
+                            second.change(function () {
+                                //$("#newMajorKindName").val($('#newMajorKindId option:selected').html());
+                                third.html("");
+                                $.ajax({
+                                    url: "zw",
+                                    data: "id=" + second.val(),
+                                    success: function (data) {
+                                        third.append("<option value='0' >--请选择--</option>");
+                                        for (var i = 0; i < data.length; i++) {
+                                            third.append("<option value='" + data[i].major_id + "'>" + data[i].major_name + "</option>");
+                                        }
+                                    }
+                                })
+
+                            });
+                        });
+
+                    </script>
                     <select name="human_major_id" multiple="multiple" style="width: 290;height: 100"
                             id="majorId" size="5"
-                            class="SELECT_STYLE2">
-                        @foreach (var item in ViewData["zw"] as List<config_major>)
-                        {
-                            <option value="@item.major_id">@item.major_name</option>
-                        }
-                    </select>
+                            class="SELECT_STYLE2"></select>
 
                 </td>
             </tr>
 
-            <tr>
-                <td class="TD_STYLE1" width="30%">
-                    请输入关键字
-                </td>
-                <td width="84%">
-                    <input type="text" name="primar_key" value=""
-                           class="INPUT_STYLE2" />
-                </td>
-            </tr>
 
             <tr>
                 <td class="TD_STYLE1" width="30%">

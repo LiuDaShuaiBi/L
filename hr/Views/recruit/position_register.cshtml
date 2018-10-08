@@ -60,22 +60,21 @@
     </script>
     <script type="text/javascript">
         function mysubmit() {
-            document.getElementById('deadline').value = document
-                    .getElementById('date_start').value;
+            
 
-            if (document.getElementById("firstKindId").value == "") {
+            if (document.getElementById("firstKindId").value == "0") {
                 alert("请选择一级机构");
                 return;
             }
-            if (document.getElementById("engageType").value == "") {
+            if (document.getElementById("engageType").value == "0") {
                 alert("请选择招聘类型");
                 return;
             }
-            if (document.getElementById("majorKindId").value == "") {
+            if (document.getElementById("majorKindId").value == "0") {
                 alert("请选择职位分类");
                 return;
             }
-            if (document.getElementById("majorId").value == "") {
+            if (document.getElementById("majorId").value == "0") {
                 alert("请选择职位名称");
                 return;
             }
@@ -109,8 +108,8 @@
             </tr>
             <tr>
                 <td align="right">
-                    <input type="submit" value="提交" class="BUTTON_STYLE1"
-                           @*onclick="mysubmit();*@>
+                    <input type="button" value="提交" class="BUTTON_STYLE1"
+                          onclick="mysubmit()">
                     <input type="reset" value="清除" class="BUTTON_STYLE1">
                 </td>
             </tr>
@@ -125,7 +124,7 @@
                 <td width="14%" class="TD_STYLE2">
 
                     <select name="first_kind_id" id="firstKindId" class="SELECT_STYLE1">
-                        <option value="">--请选择--</option>
+                        <option value="0">--请选择--</option>
                         @foreach (var item in ViewData["yi"] as List<config_file_first_kind>)
                         {
                             <option value="@item.first_kind_id">@item.first_kind_name</option>
@@ -146,14 +145,13 @@
                                 url: "er",
                                 data: "id=" + first.val(),
                                 success: function (data) {
-                                    second.append("<option value='0' >-----请选择-----</option>");
+                                    second.append("<option value='0' >--请选择--</option>");
                                     for (var i = 0; i < data.length; i++) {
                                         second.append("<option value='" + data[i].second_kind_id + "'>" + data[i].second_kind_name + "</option>");
                                     }
                                     //alert(data);
                                 }
                             })
-
                         });
 
                     });
@@ -163,7 +161,7 @@
                 </td>
                 <td width="14%" class="TD_STYLE2">
                     <select name="second_kind_id" id="secondKindId" class="SELECT_STYLE1">
-                        <option value='0'>-----请选择-----</option>
+                        <option value='0'>--请选择--</option>
                     </select>
                 </td>
                 <td width="11%" class="TD_STYLE1">
@@ -183,7 +181,7 @@
                                 url: "san",
                                 data: "id=" + second.val(),
                                 success: function (data) {
-                                    third.append("<option value='0' >-----请选择-----</option>");
+                                    third.append("<option value='0' >--请选择--</option>");
                                     for (var i = 0; i < data.length; i++) {
                                         third.append("<option value='" + data[i].third_kind_id + "'>" + data[i].third_kind_name + "</option>");
                                     }
@@ -204,7 +202,7 @@
                 </td>
                 <td class="TD_STYLE2" colspan="2">
                     <select name="engage_type" id="engageType" class="SELECT_STYLE1">
-                        <option value="">--请选择--</option>
+                        <option value="0">--请选择--</option>
 
                         <option value="校园招聘">校园招聘</option>
 
@@ -227,16 +225,37 @@
                         }
                     </select>
                 </td>
+                <script type="text/javascript">
+
+                        $(function () {
+
+                            var second = $('#majorKindId');
+                            var third = $('#majorId');
+                            second.change(function () {
+                                //$("#newMajorKindName").val($('#newMajorKindId option:selected').html());
+                                third.html("");
+                                $.ajax({
+                                    url: "zw",
+                                    data: "id=" + second.val(),
+                                    success: function (data) {
+                                        third.append("<option value='0' >--请选择--</option>");
+                                        for (var i = 0; i < data.length; i++) {
+                                            third.append("<option value='" + data[i].major_id + "'>" + data[i].major_name + "</option>");
+                                        }
+                                    }
+                                })
+
+                            });
+                        });
+
+                </script>
                 <td class="TD_STYLE1">
                     职位名称
                 </td>
                 <td class="TD_STYLE2">
                     <select name="major_id" id="majorId" class="SELECT_STYLE1">
                         <option value="">--请选择--</option>
-                        @foreach (var item in ViewData["zw"] as List<config_major>)
-                        {
-                            <option value="@item.mak_id">@item.major_name</option>
-                        }
+                        
                     </select>
                 </td>
                 <td class="TD_STYLE1">

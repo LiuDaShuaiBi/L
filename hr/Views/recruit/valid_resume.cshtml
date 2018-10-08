@@ -44,11 +44,11 @@ function search(){
 
 <body>
     <form id="recruitAction!findEngageResume?a=valid" name="humanfileForm" action="resume" method="post">
-        <input type="hidden" name="engageResume.humanMajorKindName"
+        <input type="hidden" name="human_major_kind_name"
                id="majorKindName" />
-        <input type="hidden" name="engageResume.humanMajorName"
+        <input type="hidden" name="human_major_name"
                id="majorName" />
-        <input type="hidden" name="engageResume.checkStatus"
+        <input type="hidden" name="check_status"
                value="true" />
         <table width="100%">
             <tr>
@@ -82,27 +82,39 @@ function search(){
                         }
 
                     </select>
+                    <script type="text/javascript">
+
+                        $(function () {
+
+                            var second = $('#majorKindId');
+                            var third = $('#majorId');
+                            second.change(function () {
+                                //$("#newMajorKindName").val($('#newMajorKindId option:selected').html());
+                                third.html("");
+                                $.ajax({
+                                    url: "zw",
+                                    data: "id=" + second.val(),
+                                    success: function (data) {
+                                        third.append("<option value='0' >--请选择--</option>");
+                                        for (var i = 0; i < data.length; i++) {
+                                            third.append("<option value='" + data[i].major_id + "'>" + data[i].major_name + "</option>");
+                                        }
+                                    }
+                                })
+
+                            });
+                        });
+
+                    </script>
                     <select name="human_major_id" multiple="multiple" style="width: 290;height: 100"
                             id="majorId" size="5"
                             class="SELECT_STYLE2">
-                        @foreach (var item in ViewData["zw"] as List<config_major>)
-                        {
-                            <option value="@item.major_id">@item.major_name</option>
-                        }
+                        
                     </select>
 
                 </td>
             </tr>
 
-            <tr>
-                <td class="TD_STYLE1" width="30%">
-                    请输入关键字
-                </td>
-                <td width="84%">
-                    <input type="text" name="primar_key" value=""
-                           class="INPUT_STYLE2" />
-                </td>
-            </tr>
 
             <tr>
                 <td class="TD_STYLE1" width="30%">

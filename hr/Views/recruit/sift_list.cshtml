@@ -89,32 +89,36 @@
             </tr>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td class="TD_STYLE2">
-                        @item.ein_id
-                    </td>
-                    <td class="TD_STYLE2">
-                        @item.human_name
-                    </td>
-                    <td class="TD_STYLE2">
-                        @item.human_major_kind_name
-                    </td>
-                    <td class="TD_STYLE2">
-                        @item.human_major_name
-                    </td>
-                    <td class="TD_STYLE2">
-                        @item.interview_amount
-                    </td>
-                    <td class="TD_STYLE2">
-                        @item.registe_time
-                    </td>
-                    <td class="TD_STYLE2">
-                        @item.multi_quality_degree
-                    </td>
-                    <td class="TD_STYLE2">
-                        <a href="interview_sift/@item.ein_id" target="mainFrame">筛选</a>
-                    </td>
-                </tr>
+                if (item.check_status == 1)
+                {
+                    <tr>
+                        <td class="TD_STYLE2">
+                            @item.ein_id
+                        </td>
+                        <td class="TD_STYLE2">
+                            @item.human_name
+                        </td>
+                        <td class="TD_STYLE2">
+                            @item.human_major_kind_name
+                        </td>
+                        <td class="TD_STYLE2">
+                            @item.human_major_name
+                        </td>
+                        <td class="TD_STYLE2">
+                            @item.interview_amount
+                        </td>
+                        <td class="TD_STYLE2">
+                            @item.registe_time
+                        </td>
+                        <td class="TD_STYLE2">
+                            @item.multi_quality_degree
+                        </td>
+                        <td class="TD_STYLE2">
+                            <a href="interview_sift/@item.ein_id" target="mainFrame">筛选</a>
+                        </td>
+                    </tr>
+                }
+
             }
 
 

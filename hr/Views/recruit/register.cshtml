@@ -133,7 +133,8 @@
     <form id="recruitAction!saveEngageResume" name="fm" action="register_add" method="post" enctype="multipart/form-data">
         <input type="hidden" name="pass_checkComment:" value="不通过" />
         <input type="hidden" name="pass_passComment" value="不通过" />
-        <input type="hidden" name="pass_check_status" value="false" />
+        <input type="hidden" name="pass_check_status" value="2" />
+        <input type="hidden" name="check_status" value="2" />
         <table width="100%">
             <tr>
                 <td>
@@ -176,7 +177,6 @@
                         {
                             <option value="@item.major_name">@item.major_name</option>
                         }
-                        <option value="总经理">总经理</option>
                     </select>
                 </td>
                 <td width="11%" class="TD_STYLE1">

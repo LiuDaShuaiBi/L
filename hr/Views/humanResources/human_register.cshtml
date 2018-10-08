@@ -20,23 +20,32 @@
     <script type="text/javascript"
             src="../../javascript/jquery.messager.js">
     </script>
-
+    <script src="~/javascript/human_check.js"></script>
     <script type="text/javascript"
             src="~/javascript/select.js">
     </script>
 
-    <script type="text/javascript"
-            src="../../javascript/time.js">
+    <script src="../../javascript/time.js">
     </script>
-
+    <script src="~/javascript/xlk.js"></script>
     @*<script type="text/javascript"
                 src="../../javascript/human_input_check.js">
         </script>*@
+    <script type="text/javascript">
+        $(function () {
+            $("#salary_standard_id").change(function () {
+                $("#salary_standard_name").val($("#salary_standard_id").find("option:selected").text());
+                $("#salary_sum").val($("#salary_standard_id").find("option:selected").text());
+            });
+        })
+    </script>
 </head>
 
 <body>
     <table width="100%">
         <form method="post" action="register_choose_picture">
+            <input type="hidden" name="human_id" value="@ViewData["id"]" />
+            <input type="hidden" name="check_status" value="2" />
             <tr>
                 <td>
                     <font color="black">您正在做的业务是：人力资源--人力资源档案管理--人力资源档案登记 </font>
@@ -72,10 +81,7 @@
             <td width="14%" class="TD_STYLE2">
                 <select name="second_kind_id" class="SELECT_STYLE1" id="secondKindId">
                     <option value="0">请选择</option>
-                    @foreach (var item in ViewData["er"] as List<config_file_second_kind>)
-                    {
-                        <option value="@item.second_kind_id">@item.second_kind_name</option>
-                    }
+                   
                 </select>
                 <input type="hidden" name="second_kind_name" id="secondKindName" />
             </td>
@@ -83,12 +89,9 @@
                 III级机构
             </td>
             <td class="TD_STYLE2" colspan="2">
-                <select name="third_kind_id" class="SELECT_STYLE1" id="thirdKind">
+                <select name="third_kind_id" class="SELECT_STYLE1" id="thirdKindId">
                     <option value="0">请选择</option>
-                    @foreach (var item in ViewData["san"] as List<config_file_third_kind>)
-                    {
-                        <option value="@item.third_kind_id">@item.third_kind_name</option>
-                    }
+                   
                 </select>
                 <input type="hidden" name="third_kind_name" id="thirdKindName" />
             </td>
@@ -111,24 +114,15 @@
                 职位名称
             </td>
             <td class="TD_STYLE2">
-                <select name="human_major_id" class="SELECT_STYLE1" id="majorNameId">
-                    @foreach (var item in ViewData["zwmc"] as List<config_major>)
-                    {
-                        <option value="@item.major_id">@item.major_name</option>
-                    }
+                <select name="human_major_id" class="SELECT_STYLE1" id="majorId">
+                    <option value="0">请选择</option>
                 </select>
-                <input type="hidden" name="hunma_major_name" id="majorNameName" />
+                <input type="hidden" name="hunma_major_name" id="majorName" />
             </td>
-            <td class="TD_STYLE1">
-                职称
-            </td>
-            <td colspan="2" class="TD_STYLE2">
-                <select name="human_pro_designation" class="SELECT_STYLE1">
-                    <option value="工程师">工程师</option>
-                    <option value="助理">助理</option>
-                    <option value="经理">经理</option>
-                </select>
-            </td>
+            
+  
+                <input name="human_pro_designation" class="SELECT_STYLE1" id="pro" type="hidden" value="员工"> 
+
         </tr>
         <tr>
             <td class="TD_STYLE1">
@@ -342,10 +336,14 @@
                 薪酬标准
             </td>
             <td class="TD_STYLE2">
-                <select name="salary_standard_id" class="SELECT_STYLE1">
-                    <option>10000</option>
-                    <option>20000</option>
+                <select name="salary_standard_id" class="SELECT_STYLE1" id="salary_standard_id">
+                    @foreach (var item in ViewData["zc"] as List<salary_standard>)
+                    {
+                        <option value="@item.standard_id">@item.salary_sum</option>
+                    }
                 </select>
+                <input type="hidden" name="salary_standard_name" id="salary_standard_name" />
+                <input type="hidden" name="salary_sum" id="salary_sum" />
             </td>
             <td class="TD_STYLE1">
                 开户行
@@ -365,8 +363,7 @@
                 登记人
             </td>
             <td class="TD_STYLE2">
-                <input type="text" name="register" value="谢鹏"
-                       readonly="readonly" class="INPUT_STYLE2">
+                <input type="text" name="register" value="admin" class="INPUT_STYLE2">
             </td>
         </tr>
         <tr>
@@ -374,7 +371,8 @@
                 建档时间
             </td>
             <td class="TD_STYLE2">
-                <input type="text" name="regist_time" id="create_time" readonly="readonly"
+                <input type="text" name="regist_time"
+                       id="create_time" readonly="readonly"
                        class="INPUT_STYLE2">
             </td>
             <td class="TD_STYLE1">

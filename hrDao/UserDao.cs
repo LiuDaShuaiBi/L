@@ -17,5 +17,6 @@ namespace hrDao
             var res = se.users.SqlQuery(sql).Count();
             return res>0;
         }
+        
     }
 }

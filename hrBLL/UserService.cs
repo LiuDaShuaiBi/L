@@ -37,5 +37,9 @@ namespace hrBLL
         {
             return ist.SelectBy(e=>e.u_id==us.u_id)[0];
         }
+        public users SelectBy(users us)
+        {
+            return ist.SelectBy(e => e.u_name == us.u_name&e.u_password==us.u_password)[0];
+        }
     }
 }

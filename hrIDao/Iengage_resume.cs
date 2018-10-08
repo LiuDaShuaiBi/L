@@ -9,5 +9,7 @@ namespace hrIDao
 {
     public interface Iengage_resume:IBaseDao<engage_resume>
     {
+        bool xg(short id,short st);
+        
     }
 }

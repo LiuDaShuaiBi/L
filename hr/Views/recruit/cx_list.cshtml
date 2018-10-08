@@ -7,6 +7,7 @@
 
 <html>
 <head>
+    <meta name="viewport" content="width=device-width" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet"
           href="../../../css/table.css" type="text/css">
@@ -30,63 +31,20 @@
     <script type="text/javascript"
             src="../../../javascript/select.js">
     </script>
-    <script type="text/javascript">
- 			window.onload=check;
-		function tick() {
-			var now = new Date();
-			var hours, minutes, seconds, noon;
-			var intHours, intMinutes, intSeconds;
-			intHours = now.getHours();
-			intMinutes = now.getMinutes();
-			intSeconds = now.getSeconds();
-			if (intHours < 24) {
-				hours = intHours+":";
-				noon = "A.M.";
-			} else {
-				intHours = intHours - 24;
-				hours = intHours + ":";
-				noon = "P.M.";
-			}
-			if (intMinutes < 10) {
-				minutes = "0"+intMinutes+":";
-			} else {
-				minutes = intMinutes+":";
-			}
-			if (intSeconds < 10) {
-				seconds = "0"+intSeconds+" ";
-			} else {
-				seconds = intSeconds+" ";
-			}
-			timeString = hours+minutes+seconds;
-			var now = new Date();
-		  	document.getElementById("nowTime").value=now.getFullYear()+"-"+(now.getMonth()+1)+"-"+now.getDate()+" "+timeString;
-			window.setTimeout("tick();", 1000);
-		}
-
-		//load事件
-		function check(){
-			//获得系统当前时间的方法
-		  	tick();
-		}
-    </script>
-    <script type="text/javascript">
- 		
-    </script>
+    <title>cx_list</title>
 </head>
 <body>
     <form id="recruitAction!saveEngageResume" name="fm" action="/HR_Fist/recruit/recruitAction!saveEngageResume" method="post" enctype="multipart/form-data">
-        
+
         <table width="100%">
             <tr>
                 <td>
-                    <font color="black">您正在做的业务是：人力资源--招聘管理--简历管理 </font>
+                    <font color="black">您正在做的业务是：人力资源--招聘管理--简历查询 </font>
 
                 </td>
             </tr>
             <tr>
-                <td align="right">
-
-                </td>
+                <td align="right"></td>
             </tr>
         </table>
         <table width="100%" border="1" cellpadding="0" cellspacing="1" bordercolorlight="#848284" bordercolordark="#eeeeee" class="TABLE_STYLE1">
@@ -120,7 +78,7 @@
 
                 @foreach (var item in Model)
                 {
-                    if (item.check_status == 2)
+                    if (item.check_status == 1)
                     {
                         <tr class="TR_STYLE1">
                             <td class="TD_STYLE2">
@@ -145,13 +103,13 @@
                                 @item.human_educated_major
                             </td>
                             <td class="TD_STYLE2">
-                                <a href="resume_register/@item.res_id">筛选</a>
+                                <a href="resume_select/@item.res_id">详情</a>
                             </td>
                         </tr>
                     }
 
                 }
-                
+
             </tbody>
         </table>
     </form>

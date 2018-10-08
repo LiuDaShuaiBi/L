@@ -26,7 +26,7 @@ $(function(){
 		
 		
 	});
-	$("#majorId").change(function(){
+	$("#majorId").change(function () {
 		var majorIdText = $("#majorId").find("option:selected").text();
 		$("#majorName").val(majorIdText);
 	});

@@ -2,7 +2,7 @@
 @{
     Layout = null;
 }
-
+@model IEnumerable<hrModel.salary_grant>
 <!DOCTYPE html>
 
 <html>
@@ -60,73 +60,35 @@
                     复核
                 </td>
             </tr>
-
-            <tr class="TD_STYLE2">
-                <td>
-                    HS1353753198460
-                </td>
-                <td>
-                    Ⅰ级结构
-                </td>
-                <td></td>
-                <td></td>
-                <td>
-                    5
-                </td>
-                <td>
-                    139823.0
-                </td>
-                <td>
-                    <a href="check.html">复核</a>
-                </td>
-            </tr>
-
-            <tr class="TD_STYLE2">
-                <td>
-                    HS1353322455169
-                </td>
-                <td>
-                    Ⅰ级结构
-                </td>
-                <td>
-                    Ⅱ级结构3
-                </td>
-                <td></td>
-                <td>
-                    1
-                </td>
-                <td>
-                    1332.0
-                </td>
-                <td>
-                    <a href="check.html">复核</a>
-                </td>
-            </tr>
-
-            <tr class="TD_STYLE2">
-                <td>
-                    HS1353322419274
-                </td>
-                <td>
-                    Ⅰ级结构
-                </td>
-                <td></td>
-                <td></td>
-                <td>
-                    5
-                </td>
-                <td>
-                    139157.0
-                </td>
-                <td>
-                    <a href="check.html">复核</a>
-                </td>
-            </tr>
-
-
+            @foreach (var item in Model)
+            {
+                if (item.checker == "" || item.checker == null)
+                {
+                    <tr class="TD_STYLE2">
+                        <td>
+                            @item.salary_grant_id
+                        </td>
+                        <td>
+                            @item.first_kind_name
+                        </td>
+                        <td>@item.second_kind_name</td>
+                        <td>@item.third_kind_name</td>
+                        <td>
+                            @item.human_amount
+                        </td>
+                        <td>
+                            @item.salary_standard_sum
+                        </td>
+                        <td>
+                            <a href="check/@item.salary_grant_id">复核</a>
+                        </td>
+                    </tr>
+                }
+            }
+            
         </table>
 
-        <html>
+        @*<html>
         <head>
         </head>
         <body>
@@ -181,7 +143,7 @@
 
 
         </body>
-    </html>
+    </html>*@
 </form>
 </body>
 </html>

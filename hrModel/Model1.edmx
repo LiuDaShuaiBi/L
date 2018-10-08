@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="hr_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="hr_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="bonus">
           <Key>
             <PropertyRef Name="bon_id" />
@@ -577,6 +577,27 @@
           <Property Name="u_password" Type="varchar" MaxLength="60" Nullable="false" />
           <Property Name="u_url" Type="varchar" MaxLength="60" />
         </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“hr_db.dbo.View_GZ”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_GZ">
+          <Key>
+            <PropertyRef Name="huf_id" />
+          </Key>
+          <Property Name="salary_standard_id" Type="varchar" MaxLength="30" />
+          <Property Name="item_name" Type="varchar" MaxLength="60" />
+          <Property Name="salary" Type="money" />
+          <Property Name="human_name" Type="varchar" MaxLength="60" />
+          <Property Name="human_id" Type="varchar" MaxLength="30" />
+          <Property Name="first_kind_id" Type="char" MaxLength="2" />
+          <Property Name="second_kind_name" Type="varchar" MaxLength="60" />
+          <Property Name="third_kind_id" Type="char" MaxLength="2" />
+          <Property Name="third_kind_name" Type="varchar" MaxLength="60" />
+          <Property Name="second_kind_id" Type="char" MaxLength="2" />
+          <Property Name="first_kind_name" Type="varchar" MaxLength="60" />
+          <Property Name="standard_id" Type="varchar" MaxLength="30" />
+          <Property Name="standard_name" Type="varchar" MaxLength="60" />
+          <Property Name="huf_id" Type="smallint" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="hr_dbModelStoreContainer">
           <EntitySet Name="bonus" EntityType="Self.bonus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="config_file_first_kind" EntityType="Self.config_file_first_kind" Schema="dbo" store:Type="Tables" />
@@ -605,9 +626,26 @@
           <EntitySet Name="salary_standard_details" EntityType="Self.salary_standard_details" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="training" EntityType="Self.training" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="View_GZ" EntityType="Self.View_GZ" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_GZ].[salary_standard_id] AS [salary_standard_id], 
+    [View_GZ].[item_name] AS [item_name], 
+    [View_GZ].[salary] AS [salary], 
+    [View_GZ].[human_name] AS [human_name], 
+    [View_GZ].[human_id] AS [human_id], 
+    [View_GZ].[first_kind_id] AS [first_kind_id], 
+    [View_GZ].[second_kind_name] AS [second_kind_name], 
+    [View_GZ].[third_kind_id] AS [third_kind_id], 
+    [View_GZ].[third_kind_name] AS [third_kind_name], 
+    [View_GZ].[second_kind_id] AS [second_kind_id], 
+    [View_GZ].[first_kind_name] AS [first_kind_name], 
+    [View_GZ].[standard_id] AS [standard_id], 
+    [View_GZ].[standard_name] AS [standard_name], 
+    [View_GZ].[huf_id] AS [huf_id]
+    FROM [dbo].[View_GZ] AS [View_GZ]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="hr_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1211,7 +1249,27 @@
           <EntitySet Name="salary_standard_details" EntityType="Self.salary_standard_details" />
           <EntitySet Name="training" EntityType="Self.training" />
           <EntitySet Name="users" EntityType="Self.users" />
+          <EntitySet Name="View_GZ" EntityType="hr_dbModel.View_GZ" />
         </EntityContainer>
+        <EntityType Name="View_GZ">
+          <Key>
+            <PropertyRef Name="huf_id" />
+          </Key>
+          <Property Name="salary_standard_id" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="item_name" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="salary" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="human_name" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="human_id" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="first_kind_id" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="second_kind_name" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="third_kind_id" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="third_kind_name" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="second_kind_id" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="first_kind_name" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="standard_id" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="standard_name" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="huf_id" Type="Int16" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1817,6 +1875,26 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="View_GZ">
+            <EntityTypeMapping TypeName="hr_dbModel.View_GZ">
+              <MappingFragment StoreEntitySet="View_GZ">
+                <ScalarProperty Name="huf_id" ColumnName="huf_id" />
+                <ScalarProperty Name="standard_name" ColumnName="standard_name" />
+                <ScalarProperty Name="standard_id" ColumnName="standard_id" />
+                <ScalarProperty Name="first_kind_name" ColumnName="first_kind_name" />
+                <ScalarProperty Name="second_kind_id" ColumnName="second_kind_id" />
+                <ScalarProperty Name="third_kind_name" ColumnName="third_kind_name" />
+                <ScalarProperty Name="third_kind_id" ColumnName="third_kind_id" />
+                <ScalarProperty Name="second_kind_name" ColumnName="second_kind_name" />
+                <ScalarProperty Name="first_kind_id" ColumnName="first_kind_id" />
+                <ScalarProperty Name="human_id" ColumnName="human_id" />
+                <ScalarProperty Name="human_name" ColumnName="human_name" />
+                <ScalarProperty Name="salary" ColumnName="salary" />
+                <ScalarProperty Name="item_name" ColumnName="item_name" />
+                <ScalarProperty Name="salary_standard_id" ColumnName="salary_standard_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1832,7 +1910,7 @@
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="false" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
       </DesignerInfoPropertySet>

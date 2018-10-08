@@ -27,6 +27,7 @@
     <script type="text/javascript"
             src="../../javascript/locate.js">
     </script>
+    <script src="~/javascript/xlk.js"></script>
 </head>
 
 <body>
@@ -55,10 +56,10 @@
                 <td width="84%" class="TD_STYLE2">
                     <select name="first_kind_id" size="5" id="firstKind"
                             class="SELECT_STYLE2">
-                        <option value="" selected="selected">全部</option>
+                        <option value="0" selected="selected">全部</option>
                         @foreach (var item in ViewData["yi"] as List<config_file_first_kind>)
                         {
-                            <option value="@item.first_kind_name">@item.first_kind_name</option>
+                            <option value="@item.first_kind_id">@item.first_kind_name</option>
                         }
                     </select>
                 </td>
@@ -73,10 +74,7 @@
                         <option value="" selected="selected">
                             全部
                         </option>
-                        @foreach (var item in ViewData["er"] as List<config_file_second_kind>)
-                        {
-                            <option value="@item.second_kind_name">@item.second_kind_name</option>
-                        }
+                       
                     </select>
                 </td>
             </tr>
@@ -89,10 +87,7 @@
                         <option value="" selected="selected">
                             全部
                         </option>
-                        @foreach (var item in ViewData["san"] as List<config_file_third_kind>)
-                        {
-                            <option value="@item.third_kind_name">@item.third_kind_name</option>
-                        }
+                        
                     </select>
                 </td>
             </tr>
@@ -108,7 +103,7 @@
                         </option>
                         @foreach (var item in ViewData["zwfl"] as List<config_major_kind>)
                         {
-                            <option value="@item.major_kind_name">@item.major_kind_name</option>
+                            <option value="@item.major_kind_id">@item.major_kind_name</option>
                         }
                     </select>
                 </td>
@@ -122,10 +117,7 @@
                         <option value="" selected="selected">
                             全部
                         </option>
-                        @foreach (var item in ViewData["zwmc"] as List<config_major>)
-                        {
-                            <option value="@item.major_name">@item.major_name</option>
-                        }
+                        
                     </select>
                 </td>
             </tr>

@@ -5,11 +5,16 @@
 
 <!DOCTYPE html>
 @model IEnumerable<hrModel.human_file>
+
+@{ int count = 0;}
 <html>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet"
           href="../../css/table.css" type="text/css" />
+    <script src="~/javascript/jquery-1.7.2.js"></script>
+    
 </head>
 <body>
     <form method="post" action="">
@@ -21,7 +26,7 @@
             </tr>
             <tr>
                 <td>
-                    当前等待复核的人力资源档案总数：@Model.Count() 例
+                    当前等待复核的人力资源档案总数：<span id="count"></span> 例
                 </td>
             </tr>
         </table>
@@ -58,32 +63,36 @@
 
             @foreach (var item in Model)
             {
-                <tr>
-                    <td class="TD_STYLE2">
-                        @item.human_id
-                    </td>
-                    <td class="TD_STYLE2">
-                        @item.human_name
-                    </td>
-                    <td class="TD_STYLE2">
-                        @item.human_sex
-                    </td>
-                    <td class="TD_STYLE2">
-                        @item.first_kind_name
-                    </td>
-                    <td class="TD_STYLE2">
-                        @item.second_kind_name
-                    </td>
-                    <td class="TD_STYLE2">
-                        @item.third_kind_name
-                    </td>
-                    <td class="TD_STYLE2">
-                        @item.human_pro_designation
-                    </td>
-                    <td class="TD_STYLE2">
-                        <a href="human_check/@item.huf_id">复核</a>
-                    </td>
-                </tr>
+                if (item.check_status == 2)
+                {
+                    count++;
+                    <tr>
+                        <td class="TD_STYLE2">
+                            @item.human_id
+                        </td>
+                        <td class="TD_STYLE2">
+                            @item.human_name
+                        </td>
+                        <td class="TD_STYLE2">
+                            @item.human_sex
+                        </td>
+                        <td class="TD_STYLE2">
+                            @item.first_kind_name
+                        </td>
+                        <td class="TD_STYLE2">
+                            @item.second_kind_name
+                        </td>
+                        <td class="TD_STYLE2">
+                            @item.third_kind_name
+                        </td>
+                        <td class="TD_STYLE2">
+                            @item.human_pro_designation
+                        </td>
+                        <td class="TD_STYLE2">
+                            <a href="human_check/@item.huf_id">复核</a>
+                        </td>
+                    </tr>
+                }
             }
         </table>
         @*<p style="text-align: center;">
@@ -98,4 +107,8 @@
     </form>
 </body>
 </html>
-
+<script>
+        $(function () {
+            $("#count").html(@count);
+        })
+</script>

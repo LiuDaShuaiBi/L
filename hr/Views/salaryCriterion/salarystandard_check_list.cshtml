@@ -43,6 +43,7 @@
         <table width="100%" border="1" cellpadding=0 cellspacing=1
                bordercolorlight=#848284 bordercolordark=#eeeeee
                class="TABLE_STYLE1">
+            
             <tr>
                 <td width="18%" class="TD_STYLE1">
                     <span>薪酬标准编号</span>
@@ -65,31 +66,35 @@
             </tr>
             @foreach (var item in Model)
             {
-                <tr class="TD_STYLE2">
-                    <td>
-                       @item.standard_id
+                if (item.check_status == 2)
+                {
+                    <tr class="TD_STYLE2">
+                        <td>
+                            @item.standard_id
 
-                    </td>
-                    <td>
-                        @item.standard_name
+                        </td>
+                        <td>
+                            @item.standard_name
 
-                    </td>
-                    <td>
-                        
-                        @item.register 
-                    </td>
-                    <td>
-                        @item.regist_time
-                    </td>
-                    <td>
-                        &nbsp;
-                        @item.salary_sum
+                        </td>
+                        <td>
 
-                    </td>
-                    <td>
-                        <a href="salarystandard_check/@item.standard_id">复 核</a>
-                    </td>
-                </tr>
+                            @item.register
+                        </td>
+                        <td>
+                            @item.regist_time
+                        </td>
+                        <td>
+                            &nbsp;
+                            @item.salary_sum
+
+                        </td>
+                        <td>
+                            <a href="salarystandard_check/@item.standard_id">复 核</a>
+                        </td>
+                    </tr>
+                }
+
             }
 
             

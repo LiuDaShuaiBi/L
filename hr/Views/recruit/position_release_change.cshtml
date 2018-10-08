@@ -74,7 +74,8 @@
 </head>
 <body>
     <form id="recruitAction!applyPosition" name="humanfileForm" action="../position_change_update" method="post">
-    
+        <input type="hidden" name="regist_time" value="@Model.regist_time" />
+        <input type="hidden" name="register" value="@Model.register" />
         <input id="mreid" type="hidden" name="mre_id" value="@Model.mre_id" />
         <table width="100%">
             <tr>
@@ -100,16 +101,15 @@
                 <td width="14%" class="TD_STYLE2">
                     <input type="hidden" name="first_kind_name" value="@Model.first_kind_name" />
                     <input type="hidden" name="first_kind_id" value="@Model.first_kind_id" />
-                    &#38598;&#22242;
-
+                   @Model.first_kind_name
                 </td>
                 <td width="11%" class="TD_STYLE1">
                     II级机构
                 </td>
                 <td width="14%" class="TD_STYLE2">
-                    <input type="hidden" name="first_kind_name" value="@Model.first_kind_name" />
-                    <input type="hidden" name="first_kind_id" value="@Model.first_kind_id" />
-                    &#29983;&#29289;&#31185;&#25216;&#26377;&#38480;&#20844;&#21496;
+                    <input type="hidden" name="second_kind_name" value="@Model.second_kind_name" />
+                    <input type="hidden" name="second_kind_id" value="@Model.second_kind_id" />
+                   @Model.second_kind_name
                 </td>
                 <td width="11%" class="TD_STYLE1">
                     III级机构
@@ -117,7 +117,7 @@
                 <td class="TD_STYLE2">
                     <input type="hidden" name="third_kind_name" value="@Model.third_kind_name" />
                     <input type="hidden" name="third_kind_id" value="@Model.third_kind_id" />
-                    &#33647;&#24215;
+                   @Model.third_kind_name
                 </td>
                 <td width="11%" class="TD_STYLE1">
                     招聘类型
@@ -140,7 +140,7 @@
                 <td class="TD_STYLE2">
                     <input type="hidden" name="major_kind_name" value="@Model.major_kind_name" />
                     <input type="hidden" name="major_kind_id" value="@Model.major_kind_id" />
-                    &#38144;&#21806;
+                    @Model.major_kind_name
                 </td>
                 <td class="TD_STYLE1">
                     职位名称
@@ -148,7 +148,7 @@
                 <td class="TD_STYLE2">
                     <input type="hidden" name="major_name" value="@Model.major_name" />
                     <input type="hidden" name="major_id" value="@Model.major_id" />
-                    &#24635;&#32463;&#29702;
+                   @Model.major_name
                 </td>
                 <td class="TD_STYLE1">
                     招聘人数

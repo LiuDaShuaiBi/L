@@ -7,7 +7,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link href="~/css/main.css" rel="stylesheet" />
+    <link href="~/css/table.css" rel="stylesheet" />
     <script type="text/javascript"
             src="../../javascript/comm/comm.js">
     </script>
@@ -15,18 +15,18 @@
     <script type="text/javascript" src="../../javascript/jquery-1.7.2.js"></script>
 
     <script type="text/javascript">
-			function deletePublicChar(id){
-				$.ajax({
-				        url: "/client/public_char_delete",
-						data:"Id="+id,
-						dataType:"text",
-						success:function (){
-							alert("删除成功！");
-							location.reload();
-						},
-						type:"post"
-					});
-			}
+        function deletePublicChar(id) {
+            $.ajax({
+                url: "/client/public_char_delete",
+                data: "Id=" + id,
+                dataType: "text",
+                success: function () {
+                    alert("删除成功！");
+                    location.reload();
+                },
+                type: "post"
+            });
+        }
     </script>
 </head>
 <body>
@@ -77,7 +77,6 @@
             }
         </table>
         <p>
-
     </form>
 </body>
 </html>

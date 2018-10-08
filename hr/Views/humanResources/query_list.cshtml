@@ -1,8 +1,7 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
-
+@model IEnumerable<hrModel.human_file>
 <!DOCTYPE html>
 
 <html>
@@ -22,7 +21,7 @@
             </tr>
             <tr>
                 <td>
-                    符合条件的人力资源档案总数：14例
+                    符合条件的人力资源档案总数：@Model.Count() 例
                 </td>
             </tr>
         </table>
@@ -55,207 +54,47 @@
                     职位名称
                 </td>
             </tr>
-
-            <tr class="TR_STYLE2">
-                <td width="16%" class="TD_STYLE2">
-                    <a href="query_list_information.html">bt201211190644030990</a>
-                </td>
-                <td width="13%" class="TD_STYLE2">
-                    刘恺威
-                </td>
-                <td width="8%" class="TD_STYLE2">
-                    男
-                </td>
-                <td width="14%" class="TD_STYLE2">
-                    Ⅰ级结构
-                </td>
-                <td width="14%" class="TD_STYLE2"></td>
-                <td width="14%" class="TD_STYLE2"></td>
-                <td width="14%" class="TD_STYLE2">
-                    销售
-                </td>
-                <td width="7%" class="TD_STYLE2">
-                    区域经理
-                </td>
-            </tr>
-
-            <tr class="TR_STYLE2">
-                <td width="16%" class="TD_STYLE2">
-                    <a href="query_list_information.html">bt201211190621490495</a>
-                </td>
-                <td width="13%" class="TD_STYLE2">
-                    张人俊萧
-                </td>
-                <td width="8%" class="TD_STYLE2">
-                    男
-                </td>
-                <td width="14%" class="TD_STYLE2">
-                    总部
-                </td>
-                <td width="14%" class="TD_STYLE2">
-                    湖南分校区
-                </td>
-                <td width="14%" class="TD_STYLE2">
-                    长沙分校区1
-                </td>
-                <td width="14%" class="TD_STYLE2">
-                    人力资源
-                </td>
-                <td width="7%" class="TD_STYLE2">
-                    总经理
-                </td>
-            </tr>
-
-            <tr class="TR_STYLE2">
-                <td width="16%" class="TD_STYLE2">
-                    <a href="query_list_information.html">bt201211190621400228</a>
-                </td>
-                <td width="13%" class="TD_STYLE2">
-                    张人俊萧
-                </td>
-                <td width="8%" class="TD_STYLE2">
-                    男
-                </td>
-                <td width="14%" class="TD_STYLE2">
-                    集团
-                </td>
-                <td width="14%" class="TD_STYLE2">
-                    软件公司
-                </td>
-                <td width="14%" class="TD_STYLE2">
-                    外包公司
-                </td>
-                <td width="14%" class="TD_STYLE2">
-                    人力资源
-                </td>
-                <td width="7%" class="TD_STYLE2">
-                    总经理
-                </td>
-            </tr>
-
-            <tr class="TR_STYLE2">
-                <td width="16%" class="TD_STYLE2">
-                    <a href="query_list_information.html">bt201211190621090356</a>
-                </td>
-                <td width="13%" class="TD_STYLE2">
-                    洪春生
-                </td>
-                <td width="8%" class="TD_STYLE2">
-                    男
-                </td>
-                <td width="14%" class="TD_STYLE2">
-                    Ⅰ级结构
-                </td>
-                <td width="14%" class="TD_STYLE2">
-                    Ⅱ级结构5
-                </td>
-                <td width="14%" class="TD_STYLE2"></td>
-                <td width="14%" class="TD_STYLE2">
-                    人力资源
-                </td>
-                <td width="7%" class="TD_STYLE2">
-                    专员
-                </td>
-            </tr>
-
-            <tr class="TR_STYLE2">
-                <td width="16%" class="TD_STYLE2">
-                    <a href="query_list_information.html">bt201211190620460969</a>
-                </td>
-                <td width="13%" class="TD_STYLE2">
-                    詹瑛
-                </td>
-                <td width="8%" class="TD_STYLE2">
-                    男
-                </td>
-                <td width="14%" class="TD_STYLE2">
-                    总部
-                </td>
-                <td width="14%" class="TD_STYLE2">
-                    湖南分校区
-                </td>
-                <td width="14%" class="TD_STYLE2">
-                    长沙分校区1
-                </td>
-                <td width="14%" class="TD_STYLE2">
-                    销售
-                </td>
-                <td width="7%" class="TD_STYLE2">
-                    区域经理
-                </td>
-            </tr>
-
-            <tr class="TR_STYLE2">
-                <td width="16%" class="TD_STYLE2">
-                    <a href="query_list_information.html">bt201211190620040412</a>
-                </td>
-                <td width="13%" class="TD_STYLE2">
-                    罗勇
-                </td>
-                <td width="8%" class="TD_STYLE2">
-                    男
-                </td>
-                <td width="14%" class="TD_STYLE2">
-                    集团
-                </td>
-                <td width="14%" class="TD_STYLE2">
-                    软件公司
-                </td>
-                <td width="14%" class="TD_STYLE2">
-                    外包公司
-                </td>
-                <td width="14%" class="TD_STYLE2">
-                    销售
-                </td>
-                <td width="7%" class="TD_STYLE2">
-                    区域经理
-                </td>
-            </tr>
-
-            <tr class="TR_STYLE2">
-                <td width="16%" class="TD_STYLE2">
-                    <a href="query_list_information.html">bt201211190619440428</a>
-                </td>
-                <td width="13%" class="TD_STYLE2">
-                    杨阳
-                </td>
-                <td width="8%" class="TD_STYLE2">
-                    男
-                </td>
-                <td width="14%" class="TD_STYLE2">
-                    Ⅰ级结构
-                </td>
-                <td width="14%" class="TD_STYLE2">
-                    Ⅱ级结构3
-                </td>
-                <td width="14%" class="TD_STYLE2"></td>
-                <td width="14%" class="TD_STYLE2">
-                    软件开发
-                </td>
-                <td width="7%" class="TD_STYLE2">
-                    程序员
-                </td>
-            </tr>
-
+            @foreach (var item in Model)
+            {
+                <tr class="TR_STYLE2">
+                    <td width="16%" class="TD_STYLE2">
+                        <a href="query_list_information/@item.huf_id">@item.human_id</a>
+                    </td>
+                    <td width="13%" class="TD_STYLE2">
+                        @item.human_name
+                    </td>
+                    <td width="8%" class="TD_STYLE2">
+                        @item.human_sex
+                    </td>
+                    <td width="14%" class="TD_STYLE2">
+                        @item.first_kind_name
+                    </td>
+                    <td width="14%" class="TD_STYLE2">
+                        @item.second_kind_name
+                    </td>
+                    <td width="14%" class="TD_STYLE2">
+                        @item.third_kind_name
+                    </td>
+                    <td width="14%" class="TD_STYLE2">
+                        @item.human_major_kind_name
+                    </td>
+                    <td width="7%" class="TD_STYLE2">
+                        @item.hunma_major_name
+                    </td>
+                </tr>
+            }
         </table>
-        <p style="text-align: center;">
+        @*<p style="text-align: center;">
+                <a href="query_list.html" style="color:black;">首页</a>
+                <a href="query_list.html" style="color:black;">上一页</a>
 
 
-            <a href="query_list.html" style="color:black;">首页</a>
-            <a href="query_list.html" style="color:black;">上一页</a>
+                <font color="red">1</font>
 
+                <a href="query_list.html" style="color:black;">2</a>
 
-            <font color="red">1</font>
-
-            <a href="query_list.html" style="color:black;">2</a>
-
-
-
-
-
-            <a href="query_list.html" style="color:black;">尾页</a>
-
-        </p>
+                <a href="query_list.html" style="color:black;">尾页</a>
+            </p>*@
     </form>
 </body>
 </html>

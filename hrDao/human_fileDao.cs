@@ -2,6 +2,7 @@ using hrIDao;
 using hrModel;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,27 @@ namespace hrDao
                 mc.new_first_kind_id,mc.new_first_kind_name,mc.new_second_kind_id,mc.new_second_kind_name,mc.new_third_kind_id
                 ,mc.new_third_kind_name,mc.major_id,mc.major_name,id);
             return SqlHelper.zsg(sql)>0;
+        }
+        public DataTable Lyi()
+        {
+            string sql = "select [first_kind_name] as name,sum(salary_sum) as zjr,count(0) as rs from [human_file] group by [first_kind_name]";
+            return SqlHelper.selectDataTable(sql);
+        }
+        public DataTable Ler()
+        {
+            string sql = "select [second_kind_name] as name,sum(salary_sum) as zjr,count(0) as rs from [human_file] group by [second_kind_name]";
+            return SqlHelper.selectDataTable(sql);
+        }
+        public DataTable Lsan()
+        {
+            string sql = "select [third_kind_name] as name,sum(salary_sum) as zjr,count(0) as rs from [human_file] group by [third_kind_name]";
+            return SqlHelper.selectDataTable(sql);
+        }
+        hr_dbEntities se = new hr_dbEntities();
+        public List<View_GZ> Lv()
+        {
+            List<View_GZ> lv =se.Set<View_GZ>().Select(e => e).ToList();
+            return lv;
         }
     }
 }

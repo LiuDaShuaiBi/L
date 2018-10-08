@@ -16,8 +16,8 @@
 
 <body>
     <form action="../register_success">
-        <input id="Hidden1" type="hidden" name="huf_id" value="@Model.huf_id"/>
-        <input id="Hidden1" type="hidden" name="check_status" value="1"/>
+        <input id="Hidden1" type="hidden" name="huf_id" value="@Model.huf_id" />
+        <input id="Hidden1" type="hidden" name="check_status" value="1" />
         <table width="100%">
             <tr>
                 <td>
@@ -160,10 +160,10 @@
                             var second = $("#secondKindId");
                             var third = $("#thirdKindId");
                             second.change(function () {
-                                $("#newsecondKindName").val() = second.find("option:selected").text();
+                                $("#newsecondKindName").val(second.find("option:selected").text()) ;
                             })
                             third.change(function () {
-                                $("#newThirdKindName").val() = third.find("option:selected").text();
+                                $("#newThirdKindName").val(third.find("option:selected").text());
                             })
                             first.change(function () {
                                 $("#newFirstKindName").val(first.find("option:selected").text());
@@ -246,37 +246,32 @@
                 <td class="TD_STYLE2">
                     <select style="width:160px" name="new_major_kind_id" id="newMajorKindId" size="1" class="SELECT_STYLE2">
                         <option value="0">-----请选择-----</option>
-
-                        <option value="01">销售</option>
-
-                        <option value="02">软件开发</option>
-
-                        <option value="03">人力资源</option>
-
-                        <option value="04">生产部</option>
+                        @foreach (var item in ViewData["zw"] as List<config_major_kind>)
+                        {
+                            <option value="@item.major_kind_id">@item.major_kind_name</option>
+                        }
                     </select>
                     <input type="hidden" name="new_major_kind_name" id="newMajorKindName">
                     <script type="text/javascript">
 
                         $(function () {
-                            $('#newMajorId').change(function () { $("#newMajorName").val($('#newMajorId option:selected').html()); });
+
                             var second = $('#newMajorKindId');
                             var third = $('#newMajorId');
                             second.change(function () {
                                 $("#newMajorKindName").val($('#newMajorKindId option:selected').html());
+                                third.html("");
+                                $.ajax({
+                                    url: "../zw",
+                                    data: "id=" + second.val(),
+                                    success: function (data) {
+                                        third.append("<option value='0' >-----请选择-----</option>");
+                                        for (var i = 0; i < data.length; i++) {
+                                            third.append("<option value='" + data[i].major_id + "'>" + data[i].major_name + "</option>");
+                                        }
+                                    }
+                                })
 
-                                $.post('/HR_Fist/transfer/transferAction!findMajor.action', { 'majorChange.newMajorKindId': $('#newMajorKindId option:selected').val() },
-                                function (data) {
-                                    third.css("width", second.width());
-                                    third.empty();
-                                    third.append("<option value='0' >-----请选择-----</option>");
-                                    var items = $(data).find("item");
-                                    items.each(function (i) {
-                                        var id = $(items[i]).attr("id");
-                                        var name = $(items[i]).attr("name");
-                                        third.append("<option value='" + id + "'>" + name + "</option>");
-                                    });
-                                }, 'xml');
                             });
                         });
                     </script>
@@ -287,8 +282,6 @@
                 <td class="TD_STYLE2">
                     <select name="new_major_id" id="newMajorId" class="INPUT_STYLE2">
                         <option value="0">-----请选择-----</option>
-                        <option value="1">董事长</option>
-                        <option value="2">经理</option>
                     </select>
                     <input type="hidden" name="majorChange.newMajorName" id="newMajorName">
                 </td>
@@ -298,27 +291,27 @@
                 <td class="TD_STYLE2">
                     <select style="width:160px" name="new_salary_standard_id" id="newSalaryStandardId" size="1" class="SELECT_STYLE2">
                         <option value="0">-----请选择-----</option>
-
-                        <option value="1353320063473">普通员工</option>
-
-                        <option value="1353320082662">经理级别</option>
-
-                        <option value="1353320112255">董事长</option>
+                        @foreach (var item in ViewData["xc"] as List<salary_standard>)
+                        {
+                            <option value="@item.ssd_id">@item.standard_name</option>
+                        }
 
                     </select>
                     <input type="hidden" name="new_salary_standard_name" id="newSalaryStandardName">
                     <SCRIPT type="text/javascript">
+
                         $(function () {
                             var standardid = $('#newSalaryStandardId');
                             var standardname = $('#newSalaryStandardName');
                             var newSalarySum = $('#newSalarySum');
                             standardid.change(function () {
-                                standardname.val($('#newSalaryStandardId option:selected').html());
-                                $.post('/HR_Fist/transfer/transferAction!findSalarySum.action', { 'majorChange.newSalaryStandardId': $('#newSalaryStandardId option:selected').val() },
-                                function (data) {
-                                    newSalarySum.val(data);
-                                }
-                                , 'html');
+                                $.ajax({
+                                    url: "../xc",
+                                    data: "id=" + standardid.val(),
+                                    success: function (data) {
+                                        newSalarySum.val(data);
+                                    }
+                                })
                             });
                         });
                     </SCRIPT>
@@ -328,7 +321,7 @@
                 </td>
                 <td class="TD_STYLE2">
                     <input type="text" name="new_salary_sum" id="newSalarySum" readonly="readonly"
-                           value="0.00" class="INPUT_STYLE2">
+                           value="@Model.salary_sum" class="INPUT_STYLE2">
                 </td>
             </tr>
 

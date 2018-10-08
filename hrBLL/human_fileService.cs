@@ -3,6 +3,7 @@ using hrIDao;
 using hrModel;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -79,6 +80,30 @@ namespace hrBLL
         public bool DD(major_change mc,short id)
         {
             return ist.updatahf(mc,id);
+        }
+        public DataTable Lyi()
+        {
+            return ist.Lyi();
+        }
+        public DataTable Ler()
+        {
+            return ist.Ler();
+        }
+        public DataTable Lsan()
+        {
+            return ist.Lsan();
+        }
+        public List<human_file> Oyi(string name)
+        {
+            return ist.SelectBy(e => e.first_kind_name == name);
+        }
+        public List<human_file> Oer(string name)
+        {
+            return ist.SelectBy(e => e.second_kind_name == name);
+        }
+        public List<human_file> Osan(string name)
+        {
+            return ist.SelectBy(e => e.third_kind_name == name);
         }
     }
 }

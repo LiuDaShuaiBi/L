@@ -154,18 +154,19 @@
 
 		function mians(){
 			document.getElementById("passCheckcomment").value="建议面试";
-
+		    document.getElementById("check_status").value = "1";
 		}
 		function bis(){
-			document.getElementById("passCheckcomment").value="建议笔试";
+		    document.getElementById("passCheckcomment").value="建议笔试";
+		    document.getElementById("check_status").value = "2";
 		}
 		function luy(){
 			document.getElementById("passCheckcomment").value="建议录用";
-
+		    document.getElementById("check_status").value = "3";
 		}
 		function del(){
 			document.getElementById("passCheckcomment").value="删除简历";
-
+		    document.getElementById("check_status").value = "4";
 		}
 
     </script>
@@ -188,6 +189,9 @@
 <body onload="check(),luy()">
     <form id="recruitAction!returnSiftList" name="fm" action="../interview_upd" method="post">
         <input id="ein_id" type="hidden" name="ein_id" value="@Model.Item2.ein_id"/>
+        <input id="Hidden1" type="hidden" name="check_status" value="2" />
+        <input id="Hidden1" type="hidden" name="resume_id" value="@Model.Item1.res_id" />
+        <input id="Hidde2n1" type="hidden" name="interview_status" value="1" />
         <table width="100%">
             <tr>
                 <td>

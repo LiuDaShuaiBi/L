@@ -14,6 +14,8 @@ namespace hr.Controllers
         // GET: hr
         public ActionResult Index()
         {
+            if (Session["user"] == null)
+                Redirect("Login");
             return View();
         }
         public ActionResult Gun()
@@ -41,6 +43,8 @@ namespace hr.Controllers
         {
             UserService uss = new UserService();
             bool pd = uss.Login(us);
+            if (pd)
+                Session["user"] = uss.SelectBy(us);
             return Json(pd);
         }
     }

@@ -34,11 +34,22 @@ static DBSessionFactory db = new DBSessionFactory();
         {
             return ist.SelectBy(e=>e.res_id==us.res_id)[0];
         }
-        public List<engage_resume> selectBy(string us,DateTime startDate,DateTime endDate)
+        public List<engage_resume> selectBy(string id,DateTime startDate,DateTime endDate)
         {
-
-            return ist.SelectBy(e =>  e.human_major_id==us&e.regist_time > startDate&e.regist_time < endDate);
+            if (id != "")
+                return ist.SelectBy(e => e.human_major_id == id);
+            else
+            {
+                return ist.SelectBy(e => e.regist_time > startDate & e.regist_time < endDate);
+            }
+           
         }
+        public bool xg(short id,short st)
+        {
+            return ist.xg(id, st);
+        }
+
+        
 }
 
    

@@ -52,5 +52,6 @@ namespace hrModel
         public virtual DbSet<salary_standard_details> salary_standard_details { get; set; }
         public virtual DbSet<training> training { get; set; }
         public virtual DbSet<users> users { get; set; }
+        public virtual DbSet<View_GZ> View_GZ { get; set; }
     }
 }

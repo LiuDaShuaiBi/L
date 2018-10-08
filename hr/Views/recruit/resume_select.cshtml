@@ -63,31 +63,19 @@ function toCheck(id)
                     </td>
                     <td class="TD_STYLE2">
 
-                        <select name="engageResume.humanMajorKindId">
-                            <option value="02">
-                                &#36719;&#20214;&#24320;&#21457;
-                            </option>
-                        </select>
+                        @Model.human_major_kind_name
                     </td>
                     <td class="TD_STYLE1">
                         职位名称
                     </td>
                     <td class="TD_STYLE2" width="20%">
-                        <select name="engageResume.majorId">
-                            <option value="">
-                                &#31243;&#24207;&#21592;
-                            </option>
-                        </select>
+                        @Model.human_major_name
                     </td>
                     <td width="11%" class="TD_STYLE1">
                         招聘类型
                     </td>
                     <td class="TD_STYLE2" colspan="2">
-                        <select name="engageResume.engageType" class="SELECT_STYLE1">
-                            <option value="&#26657;&#22253;&#25307;&#32856;">
-                                &#26657;&#22253;&#25307;&#32856;
-                            </option>
-                        </select>
+                        @Model.engage_type
                     </td>
                     <td rowspan="6">
                         &nbsp;
@@ -98,27 +86,19 @@ function toCheck(id)
                         姓名
                     </td>
                     <td class="TD_STYLE2">
-                        <input type="text"
-                               value="&#24352;&#39122;"
-                               name="engageResume.humanName" class="INPUT_STYLE2" readonly="readonly" />
+                        @Model.human_name
                     </td>
                     <td class="TD_STYLE1">
                         性别
                     </td>
                     <td class="TD_STYLE2">
-                        <select name="engageResume.humanName" class="SELECT_STYLE1">
-                            <option value="&#30007;">
-                                &#30007;
-                            </option>
-                        </select>
+                        @Model.human_sex
                     </td>
                     <td class="TD_STYLE1">
                         EMAIL
                     </td>
                     <td colspan="2" class="TD_STYLE2">
-                        <input type="text" name="engageResume.humanEmail"
-                               value="123@.com"
-                               class="INPUT_STYLE2" readonly="readonly">
+                        @Model.human_email
                     </td>
                 </tr>
                 <tr>
@@ -126,25 +106,19 @@ function toCheck(id)
                         电话
                     </td>
                     <td class="TD_STYLE2">
-                        <input type="text" name="engageResume.humanTelephone"
-                               value="84802802"
-                               class="INPUT_STYLE2" readonly="readonly">
+                        @Model.human_telephone
                     </td>
                     <td class="TD_STYLE1">
                         家庭电话
                     </td>
                     <td class="TD_STYLE2">
-                        <input type="text" name="engageResume.humanHomephone"
-                               value="123@.com"
-                               class="INPUT_STYLE2" readonly="readonly">
+                        @Model.human_homephone
                     </td>
                     <td class="TD_STYLE1">
                         手机
                     </td>
                     <td colspan="2" class="TD_STYLE2">
-                        <input type="text" name="engageResume.humanMobilephone"
-                               value="123@.com"
-                               class="INPUT_STYLE2" readonly="readonly">
+                        @Model.human_homephone
                     </td>
                 </tr>
                 <tr>
@@ -152,18 +126,14 @@ function toCheck(id)
                         住址
                     </td>
                     <td colspan="3" class="TD_STYLE2">
-                        <input type="text" name="engageResume.humanAddress"
-                               value="&#28246;&#21335;&#38271;&#27801;"
-                               class="INPUT_STYLE2" readonly="readonly">
+                        @Model.human_address
                     </td>
 
                     <td class="TD_STYLE1">
                         邮编
                     </td>
                     <td colspan="2" class="TD_STYLE2">
-                        <input type="text" name="engageResume.humanPostcode"
-                               value="410000"
-                               class="INPUT_STYLE2" readonly="readonly">
+                        @Model.human_postcode
                     </td>
                 </tr>
 
@@ -172,27 +142,19 @@ function toCheck(id)
                         国籍
                     </td>
                     <td class="TD_STYLE2">
-                        <select name="engageResume.humanNationality" class="SELECT_STYLE1">
-                            <option value="&#20013;&#22269;">
-                                &#20013;&#22269;
-                            </option>
-                        </select>
+                        @Model.human_nationality
                     </td>
                     <td class="TD_STYLE1">
                         出生地
                     </td>
                     <td class="TD_STYLE2">
-                        <input type="text" name="engageResume.humanBirthplace"
-                               value=""
-                               class="INPUT_STYLE2" readonly="readonly">
+                        @Model.human_birthplace
                     </td>
                     <td class="TD_STYLE1">
                         生日
                     </td>
                     <td width="13%" colspan="2" class="TD_STYLE2">
-                        <input type="text" name="engageResume.humanBirthday"
-                               value="92-2-2 12:00:00.000"
-                               class="INPUT_STYLE2" id="date_start" readonly="readonly">
+                        @Model.human_birthday
                     </td>
 
                 </tr>
@@ -201,29 +163,19 @@ function toCheck(id)
                         民族
                     </td>
                     <td class="TD_STYLE2" width="14%">
-                        <select name="engageResume.humanRace" class="SELECT_STYLE1">
-                            <option value="&#27721;&#26063;">
-                                &#27721;&#26063;
-                            </option>
-                        </select>
+                        @Model.human_race
                     </td>
                     <td class="TD_STYLE1">
                         宗教信仰
                     </td>
                     <td class="TD_STYLE2">
-                        <select name="engageResume.humanReligion" class="SELECT_STYLE1">
-                            <option value="&#26080;">
-                                &#26080;
-                            </option>
-                        </select>
+                        @Model.human_religion
                     </td>
                     <td class="TD_STYLE1">
                         政治面貌
                     </td>
                     <td class="TD_STYLE2" colspan="2">
-                        <select name="engageResume.humanParty" class="SELECT_STYLE1">
-                            <option value=""></option>
-                        </select>
+                        @Model.human_party
                     </td>
 
 
@@ -233,37 +185,26 @@ function toCheck(id)
                         身份证号码
                     </td>
                     <td class="TD_STYLE2">
-                        <input type="text" name="engageResume.humanIdcard"
-                               value="430121199202022323"
-                               class="INPUT_STYLE2" readonly="readonly">
+                        @Model.human_idcard
                     </td>
                     <td class="TD_STYLE1">
                         年龄
                     </td>
                     <td class="TD_STYLE2">
-                        <input type="text" name="engageResume.humanAge"
-                               value="20"
-                               class="INPUT_STYLE2" readonly="readonly">
+                        @Model.human_age
                     </td>
                     <td class="TD_STYLE1">
                         毕业院校
                     </td>
                     <td class="TD_STYLE2">
-                        <input type="text" name="engageResume.humanCollege"
-                               value="&#38271;&#27801;&#29702;&#24037;"
-                               class="INPUT_STYLE2" readonly="readonly" />
+                        @Model.human_college
                     </td>
 
                     <td class="TD_STYLE1">
                         学历
                     </td>
                     <td class="TD_STYLE2">
-                        <select name="engageResume.humanEducatedDegree"
-                                class="SELECT_STYLE1">
-                            <option value="&#22823;&#19987;">
-                                &#22823;&#19987;
-                            </option>
-                        </select>
+                        @Model.human_educated_degree
                     </td>
 
                 </tr>
@@ -272,38 +213,28 @@ function toCheck(id)
                         教育年限
                     </td>
                     <td class="TD_STYLE2">
-                        <select name="engageResume.humanEducatedYears"
-                                class="SELECT_STYLE1">
-                            <option value="12">
-                                12
-                            </option>
-                        </select>
+                        @Model.human_educated_years
                     </td>
                     <td class="TD_STYLE1">
                         学历专业
                     </td>
                     <td class="TD_STYLE2">
-                        <select name="engageResume.humanEducatedMajor"
-                                class="SELECT_STYLE1">
-                            <option value="&#35745;&#31639;&#26426;">
-                                &#35745;&#31639;&#26426;
-                            </option>
-                        </select>
+                        @Model.human_educated_major
                     </td>
 
                     <td class="TD_STYLE1">
                         薪酬要求
                     </td>
                     <td class="TD_STYLE2">
-                        <input type="text" name="engageResume.demandSalaryStandard"
-                               value="6000.0"
-                               class="INPUT_STYLE2" readonly="readonly" />
+                        @Model.demand_salary_standard
                     </td>
                     <td class="TD_STYLE1">
-                        注册时间
+                        复核时间
                     </td>
                     <td class="TD_STYLE2">
-                        12-11-25 13:50:30.000
+                        <input type="text" name="check_time"
+                               id="nowTime" readonly="readonly"
+                               class="INPUT_STYLE2">
                     </td>
 
                 </tr>
@@ -313,36 +244,25 @@ function toCheck(id)
                         特长
                     </td>
                     <td class="TD_STYLE2">
-                        <select name="engageResume.humanSpecility" class="SELECT_STYLE1">
-                            <option value="java">
-                                java
-                            </option>
-                        </select>
+                        @Model.human_specility
                     </td>
                     <td class="TD_STYLE1">
                         爱好
                     </td>
                     <td class="TD_STYLE2">
-                        <select name="engageResume.humanHobby" class="SELECT_STYLE1">
-                            <option value="&#31726;&#29699;">
-                                &#31726;&#29699;
-                            </option>
-                        </select>
+                        @Model.human_hobby
                     </td>
                     <td class="TD_STYLE1">
-                        推荐人
+                        &nbsp;
                     </td>
                     <td class="TD_STYLE2">
-                        <input type="text" name="engageResume.passChecker"
-                               value="zhangsan, zhangsan"
-                               class="INPUT_STYLE2" readonly="readonly" />
-
+                        &nbsp;
                     </td>
                     <td class="TD_STYLE1">
-                        推荐时间
+                        &nbsp;
                     </td>
                     <td class="TD_STYLE2">
-                        12-11-25 13:51:18.000
+                        &nbsp;
                     </td>
                 </tr>
                 <tr>
@@ -350,11 +270,7 @@ function toCheck(id)
                         个人履历
                     </td>
                     <td colspan="7" class="TD_STYLE2">
-                        <textarea name="engageResume.humanHistoryRecords" rows="4" readonly="readonly"
-                                  class="TEXTAREA_STYLE1">
-                            &#20010;&#20154;&#23653;&#21382;
-
-                        </textarea>
+                        <textarea name="engageResume.humanHistoryRecords" rows="4" class="TEXTAREA_STYLE1">@Model.human_history_records</textarea>
                     </td>
                 </tr>
 
@@ -363,22 +279,7 @@ function toCheck(id)
                         备注
                     </td>
                     <td colspan="7" class="TD_STYLE2">
-                        <textarea name="engageResume.remark" rows="4" readonly="readonly"
-                                  class="TEXTAREA_STYLE1">
-                            &#22791;&#27880;
-
-                        </textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="TD_STYLE1">
-                        推荐意见
-                    </td>
-                    <td colspan="7" class="TD_STYLE2">
-                        <textarea name="engageResume.recomandation" rows="4" readonly="readonly"
-                                  class="TEXTAREA_STYLE1">
-                            &#25512;&#33616;
-                        </textarea>
+                        <textarea name="engageResume.remark" rows="4" class="TEXTAREA_STYLE1">@Model.remark</textarea>
                     </td>
                 </tr>
             </table>

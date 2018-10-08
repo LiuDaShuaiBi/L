@@ -5,6 +5,14 @@
 
 <!DOCTYPE html>
 
+@if (Session["user"] == null)
+{
+    <script>
+        window.location.href = "Login";
+    </script>
+}
+    
+
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
